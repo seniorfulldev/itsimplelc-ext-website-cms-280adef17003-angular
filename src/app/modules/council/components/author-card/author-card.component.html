@@ -1,0 +1,17 @@
+<div class="breadcrumbs">
+  <a routerLink="/{{city}}/council">Elected Officials</a> / {{ author.name }}
+</div>
+<div class="author-card-wrapper">
+  <div class="contacts-wrapper">
+    <ada-image [src]="author.imgUrl" [alt]="'test alt'" [longdesc]="'test long description'"></ada-image>
+    <div class="contacts">
+      <p *ngIf="author.phone"><i class="icon ion-md-call"></i> <span>{{ author.phone }}</span></p>
+      <a href="mailto:{{ author.email }}"  *ngIf="author.email"><i class="icon ion-ios-mail"></i><mat-icon>email</mat-icon><span style="margin-left: 1rem">{{ author.title }}, {{ author.name }}</span></a>
+    </div>
+  </div>
+  <div class="details">
+    <p class="name">{{ author.name }}</p>
+    <p class="title">{{ author.title }}</p>
+    <p class="bio"><span class="bio-title">BIO</span><br/>{{ author.description }}</p>
+  </div>
+</div>

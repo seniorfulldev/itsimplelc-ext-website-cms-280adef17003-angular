@@ -1,0 +1,55 @@
+@import '../../../assets/theme.scss';
+.print-wrapper {
+  margin: 30px;
+  .published-address {
+    color: #000;
+    font-size: 22px;
+    .townname {
+      font-style: italic;
+    }
+
+    a {
+      color: #000;
+      font-style: normal;
+      // text-decoration: none;
+    }
+  }
+  .directory-table {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    table {
+      border-collapse: separate;
+      tr {
+        background-color: #ced4da;
+        border-bottom: solid 2px #fff;
+
+        th {
+          font-size: 16px;
+          color: white;
+          padding: 5px 12px;
+          font-weight: 300;
+          background-color: $theme-blue;
+          border-bottom: solid 2px #fff;
+          font-family: Roboto, 'Helvetica Neue', sans-serif;
+        }
+        td {
+          padding: 5px 12px;
+          background-color: #ced4da;
+          // border-bottom: solid 2px #fff;
+        }
+      }
+    }
+    .print_table {
+      cursor: pointer;
+      margin-left: 3rem;
+      background-color: rgb(37,116,170);
+      color: white;
+    }
+  }
+
+  .footer-url-content {
+    color: #000;
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,65 @@
+<ada-banner background="assets/images/city_issue-a.jpg" [title]="'Report An Issue'" [alt]="'test alt'"
+  [longdesc]="'test long desc'" [style]="'center'"></ada-banner>
+<div class="reports-wrapper">
+  <form [formGroup]="form">
+    <div class="category-wrapper">
+      <custom-upload></custom-upload>
+        <mat-form-field appearance="fill" style="width: 100%;">
+          <mat-label>Select Category</mat-label>
+          <mat-select [formControl]="cat" (valueChange)="onCategoryChange($event)">
+            <mat-select-trigger>
+              {{cat.value ? cat.value.name: 'Select Category'}}
+            </mat-select-trigger>
+            <mat-option *ngFor="let category of categories" [value]="category">{{category.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      <div class="popular_buttons">
+        <span>Popular reports quick buttons</span><br />
+        <p (click)="onTrashClick();">
+          <span>Trash</span>
+          <ada-image [src]="'assets/images/trash.svg'" [alt]="'test alt'" [longdesc]="'test long description'"
+            [fit]="'contain'"></ada-image>
+        </p>
+        <p (click)="onPotholeClick();" style="margin: 10px;">
+          <span>Pothole</span>
+          <ada-image [src]="'assets/images/pothole.svg'" [alt]="'test alt'" [longdesc]="'test long description'"
+            [fit]="'contain'"></ada-image>
+        </p>
+        <p (click)="onLightClick();">
+          <span>Light</span>
+          <ada-image [src]="'assets/images/street-light.svg'" [alt]="'test alt'" [longdesc]="'test long description'"
+            [fit]="'contain'"></ada-image>
+        </p>
+      </div>
+        <mat-form-field appearance="fill" style="width: 100%;" (click)="openedChange($event)">
+          <mat-label>{{ selectionTip? '' : 'Select Details'}} <span *ngIf="selectionTip" style="color: rgba(0,0,0,.6);font-size: 15px;">Details, please select Category above</span> </mat-label>
+          <mat-select [formControl]="cat1"  multiple (valueChange)="onCategorydetailsChange($event)">
+            <mat-select-trigger>
+              {{cat1.value ? cat1.value[0]?.name: 'Selet Details'}}
+              <span *ngIf="cat1.value?.length > 1" class="example-additional-selection">
+                (+{{cat1.value.length - 1}} {{cat1.value?.length === 2 ? 'other' : 'others'}})
+              </span>
+            </mat-select-trigger>
+            <mat-option *ngFor="let detail of title.details" [value]="detail">{{detail.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="input-wrapper">
+      <div class="map-wrapper">
+        <app-gg-map></app-gg-map>
+      </div>
+      <textarea formControlName="textBox" id="textBox" class="textBox" type="text" name="textbox" placeholder="Something else to report? Select 'Other' and type here" rows="3" cols="100"></textarea>
+    </div>
+    <div class="inputs">
+      <input pattern patternType="name" formControlName="userName" type="text" name="name" placeholder="Full Name">
+      <input pattern patternType="email" formControlName="userEmail" type="text" name="email" placeholder="Email"
+        style="margin-left: 20px;">
+      <input formControlName="userPhone" appPhoneMask type="text" name="phone" placeholder="Phone Number"
+        style="margin-left: 20px;">
+    </div>
+    <input type="submit" name="submit" value="Submit" class="submit" (click)="issue_report($event)">
+    <p *ngIf="!submit_state && isSending" class="success-message">Submitting . . .</p>
+    <p *ngIf="submit_state" class="success-message">Thank you for submitting a city issue</p>
+    <p *ngIf="empty_report" class="success-message">Please fill out all required fields</p>
+  </form>
+</div>

@@ -1,0 +1,118 @@
+.place-detail-wrapper {
+  font-family: "Calibri", sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 100;
+  color: #000;
+  margin: 32px 50px;
+  border-radius: 8px;
+  border: 1px solid #fff;
+  overflow: hidden;
+
+  @media only screen and (max-width: 650px) {
+    margin: 32px 32px;
+  }
+  @media only screen and (max-width: 650px) {
+    margin: 15px;
+  }
+
+  ada-image {
+    display: inline-block;
+    width: 50%;
+    height: 500px;
+    vertical-align: top;
+    @media only screen and (max-width: 1100px) {
+      height: 400px;
+    }
+  }
+  .place_top_ada {
+    display: none;
+    @media only screen and (max-width: 650px) {
+      display: block;
+      width: 100%;
+    }
+    @media only screen and (max-width: 500px) {
+      height: 60%;
+    }
+  }
+  .place_btm_ada {
+    @media only screen and (max-width: 650px) {
+      display: none;
+    }
+  }
+  
+  .place-detail {
+    display: inline-block;
+    width: 50%;
+    height: 500px;
+    padding: 25px 60px 20px;
+    background-color: #bfbfbf;
+    @media only screen and (max-width: 1100px) {
+      padding: 25px 30px 20px;
+      height: 400px;
+    }
+    @media only screen and (max-width: 650px) {
+      display: block;
+      width: 100%;
+    }
+
+    p {
+      font-size: 20px;
+    }
+
+    .title {
+      font-size: 36px;
+      font-style: normal;
+      line-height: 80px;
+      font-weight: 900;
+      @media only screen and (max-width: 1100px) {
+        font-size: 26px;
+        line-height: 54px;
+      }
+    }
+
+    .heading {
+      text-align: left;
+      margin-top: 20px;
+      line-height: 30px;
+      font-style: italic;
+      font-size: 20px;
+      margin-bottom: 0 !important;
+      @media only screen and (max-width: 1100px) {
+        font-size: 14px;
+        line-height: 10px;
+      }
+    }
+    
+    .sub-title {
+      font-size: 24px;
+      font-weight: 900;
+      line-height: 50px;
+      @media only screen and (max-width: 1100px) {
+        font-size: 20px;
+      }
+    }
+    
+    .e_mail {
+      color: #FFF;
+    }
+    a {
+      font-size: 24px;
+      display: inline-flex;
+      color: #000;
+      margin-right: 20px;
+      @media only screen and (max-width: 1100px) {
+        font-size: 20px;
+      }
+
+      &.link {
+        svg {
+          width: 16px;
+          height: 16px;
+          transform: rotate(135deg);
+          fill: #FFF;
+        }
+      }
+    }
+  }
+}

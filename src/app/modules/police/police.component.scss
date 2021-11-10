@@ -1,0 +1,180 @@
+.police-department-wrapper {
+    max-width: 1300px;
+    margin: 10px auto;
+    .police-wrapper {
+        width: 72%;
+        margin: 50px auto 0;
+        display: inline-block;
+        color: #000000;
+        padding: 0 20px;
+
+        & > p {
+            margin-right: 35px;
+            font-size: 18px;
+            line-height: 22px;
+        }
+        .description {
+            display: inline-block;
+            font-size: 14px;
+            width: 100%;
+        }
+        .leader-wrapper {
+            width: 29%;
+            margin-left: 50px;
+            margin-bottom: 50px;
+            vertical-align: top;
+            float: right;
+            
+            & > ada-image {
+                width: 280px;
+                height: 400px;
+                display: block;
+                border-radius: 7px;
+                overflow: hidden;
+                margin-bottom: 15px;
+                background-color: #f5f5f5;
+                & > .ada-image-wrapper {
+                    img {
+                        object-fit: cover !important;
+                    }
+                }
+            }
+            & > p {
+                span {
+                    font-weight: 700;
+                }
+            }
+            .email {
+                border-bottom: 1px solid #000000;
+            }
+            a {
+                line-height: 25px;
+                color: #000000;
+            }
+
+            @media only screen and (max-width: 800px) {
+                // float: unset;
+            }
+            @media only screen and (max-width: 520px) {
+                width: 100%;
+                float: unset;
+            }
+        }
+        @media only screen and (max-width: 1200px) {
+            width: 65%;
+            .description {
+                width: 80%;
+            }
+        }
+        @media only screen and (max-width: 800px) {
+            width: 100%;
+            .description {
+                width: 100%;
+                .leader-wrapper {
+                    width: 30%;
+                    margin-right: 14px;
+                    ada-image {
+                        width: 230px;
+                        height: 280px;
+                    }
+                }
+            }
+            flex-flow: column;
+            align-items: center;
+            & > p {
+                margin-right: 0;
+            }
+        }
+        @media only screen and (max-width: 520px) {
+            width: 100%;
+            .description {
+                width: 100%;
+                .leader-wrapper {
+                    width: 100%;
+                    margin-left: 5px;
+                    ada-image {
+                        width: 100%;
+                        height: 436px;;
+                        @media only screen and (max-width: 340px) {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+            flex-flow: column;
+            align-items: center;
+            & > p {
+                margin-right: 0;
+            }
+        }
+        .police-news-wrapper {
+            display: inline-block;
+            max-width: 1200px;
+            width: 110%;
+            margin: 20px auto 5px;
+            .latest-news-title {
+                font-weight: bold;
+                font-size: 24px;
+                line-height: 29px;
+                padding-left: 12px;
+            }
+            news-card {
+                width: 45%;
+                display: inline-block;
+                margin-right: 36px;
+                margin-bottom: 30px;
+                border: 1.1px solid #b9b9b9;
+                box-sizing: border-box;
+                border-radius: 5px;
+
+                &.news-card-wrapper {
+                    color: #a1a1a1;
+                    .details {
+                        color: #a1a1a1;
+                        .title {
+                            font-size: 14px !important;
+                        }
+                    }
+                }
+                @media only screen and (max-width: 1200px) {
+                    width: 100%;
+                }
+                @media only screen and (max-width: 800px) {
+                    margin-right: 0;
+                    // width: 97%;
+                }
+                @media only screen and (max-width: 520px) {
+                    margin-right: 0;
+                }
+            }
+            @media only screen and (max-width: 800px) {
+                width: 100%; 
+            }
+        }
+    }
+    @media only screen and (max-width: 800px) {
+        app-police-sidebar {
+            .sidemenu-wrapper {
+                width: 30%;
+            }
+        }
+    }
+}
+
+.onMobile {
+    display: none;
+    @media only screen and (max-width: 800px) {
+        display: block;
+        .sidemenu-wrapper {
+            width: 100% !important;
+            margin-left: 0;
+            margin-top: 0;
+        }
+    }
+}
+.onDesktop {
+    // display: block;
+    @media only screen and (max-width: 800px) {
+        display: none !important;
+    }
+}

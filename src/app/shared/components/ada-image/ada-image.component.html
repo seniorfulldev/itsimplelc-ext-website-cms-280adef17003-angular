@@ -1,0 +1,8 @@
+<div class="ada-image-wrapper">
+  <img *ngIf="getimgSrc(src)" src="{{ src }}" [ngClass]="fit" />
+  <video *ngIf="getvideoSrc(src)" muted loop autoplay playsinline disableRemotePlayback controls>
+    <source src="{{ src }}" type="video/mp4">
+  </video>
+  <alt [text]="alt"></alt>
+  <longdesc [longdesc]="longdesc"></longdesc>
+</div>

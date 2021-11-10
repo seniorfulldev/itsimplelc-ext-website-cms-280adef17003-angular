@@ -1,0 +1,93 @@
+.sidemenu-wrapper {
+    width: 25%;
+    display: inline-block;
+    height: max-content;
+    margin-left: 30px;
+    margin-top: 50px;
+    background-color: #a1a1a1 !important;
+    color: #ffffff;
+    vertical-align: top;
+    mat-tree {
+        mat-tree-node {
+            min-height: 14px;
+            cursor: pointer;
+            .mat-icon-button {
+                cursor: pointer;
+                width: 30px;
+                height: 30px;
+                line-height: 30px;
+                color: #ffffff;
+                background: transparent !important;
+            }
+            .mat-icon-button:focus {
+                outline: none;
+            }
+            & a {
+                color: #ffffff;
+            }
+        }
+        .Navigate {
+            display: none;
+            @media only screen and (max-width: 800px) {
+                display: block;
+
+                padding-left: 30px !important;
+                .prep {
+                    display: none;
+                }
+                .next {
+                    display: show;
+                    padding-left: 80%;
+                    @media only screen and (max-width: 520px) {
+                        padding-left: 68%;
+                    }
+                    @media only screen and (max-width: 320px) {
+                        padding-left: 62%;
+                    }
+                }
+            }
+        }
+        .About {
+            background-color: #7a7a7a;
+        }
+        .Divisions {
+            background-color: #7a7a7a;
+        }
+        .Police {
+            background-color: #7a7a7a;
+        }
+        .How {
+            background-color: #7a7a7a;
+        }
+        .Command,
+        .Community,
+        .Obtain {
+            padding-left: 54px !important;
+            .prep {
+                display: none;
+            }
+            .next {
+                display: show;
+            }
+        }
+        .About,
+        .Divisions,
+        .Police,
+        .How {
+            .prep {
+                display: show;
+            }
+            .next {
+                display: none;
+            }
+        }
+    }
+    // @media only screen and (max-width: 800px) {
+    //     width: 87%;
+    // }
+    @media only screen and (max-width: 800px) {
+        width: 100% !important;
+        margin-left: 0;
+        margin-top: 0;
+    }
+}

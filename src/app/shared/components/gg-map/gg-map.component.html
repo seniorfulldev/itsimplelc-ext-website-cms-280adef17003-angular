@@ -1,0 +1,15 @@
+<div>
+  <div class="search-box">
+    <div class="search">
+      <mat-icon>search</mat-icon>
+      <input [(ngModel)]="address" type="text" class="form-control" (keydown.enter)="$event.preventDefault()"
+        placeholder="Type Address" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off" #search>
+      <mat-icon (click)="clear()">cancel</mat-icon>
+    </div>
+    <button class="my-location" (click)="setUserCurrentLocation()">Use My Location</button>
+  </div>
+  <google-map *ngIf="apiLoaded | async" [zoom]="zoom" [center]="center" (mapClick)="mapClick($event)" [width]="423"
+    [height]="350" [options]="options">
+    <map-marker *ngIf="location" [position]="location"></map-marker>
+  </google-map>
+</div>

@@ -1,0 +1,6 @@
+<div class="choose_file">
+  <i class="icon ion-ios-camera"></i>
+  <span> {{ placeholder }} </span>
+  <input #file type="file" name="file" accept='image/*' (change)="preview(file.files)" />
+  <img [src]="imgURL" height="200" *ngIf="imgURL">
+</div>

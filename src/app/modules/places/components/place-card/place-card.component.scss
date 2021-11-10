@@ -1,0 +1,74 @@
+.place-card-wrapper {
+  height: 216px;
+  display: flex;
+  border-radius: 5px;
+  overflow: hidden;
+  text-decoration: none;
+  color: #000;
+
+  @media only screen and (max-width: 900px) {
+    flex-direction: column;
+    height: auto;
+  }
+  @media only screen and (max-width: 800px) {
+    height: auto;
+  }
+
+  .img-container {
+    flex: 50%;
+  }
+
+  .details {
+    flex: 36%;
+    padding: 12px 30px 12px 12px;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    font-size: 13px;
+
+    @media only screen and (max-width: 900px) {
+      padding: 15px 25px;
+    }
+
+    .name {
+      margin: 0;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .location {
+      display: flex;
+
+      i {
+        margin-left: -4px;
+      }
+    }
+
+    a {
+      color: #000000;
+    }
+
+    .facilities {
+      color: #aaaaaa;
+      margin-bottom: 5px;
+    }
+
+    .facilities-icons {
+      width: 100%;
+      height: 35px;
+      background-color: #f4f8fb;
+    }
+  }
+
+  .more {
+    display: block;
+    float: right;
+    width: 94px;
+    line-height: 26px;
+    text-decoration: none;
+    background-color: #2575AA;
+    color: #fff;
+    border-radius: 5px;
+    text-align: center;
+    margin-right: 1rem;
+  }
+}

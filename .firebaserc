@@ -1,0 +1,27 @@
+{
+  "projects": {
+    "default": "its-my-town-stage"
+  },
+  "targets": {
+    "its-my-town-stage": {
+      "hosting": {
+        "itsmytown-stage-dt1": [
+          "itsmytown-stage-dt1"
+        ],
+        "itsmytown-stage-pt1": [
+          "itsmytown-stage-pt1"
+        ],
+        "testing": [
+          "itsmytown-stage-testing"
+        ]
+      }
+    },
+    "its-my-town": {
+      "hosting": {
+        "baldwin-ga": [
+          "baldwin-ga"
+        ]
+      }
+    }
+  }
+}

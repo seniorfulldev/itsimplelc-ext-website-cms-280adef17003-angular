@@ -1,0 +1,44 @@
+<ada-banner [background]="'assets/images/events.jpg'" [title]="'Events'" [alt]="'test alt'"
+  [longdesc]="'test long desc'"></ada-banner>
+<div class="cards-wrapper">
+  <ng-container *ngIf="events$ | async as eventsList">
+    <div class="cards hidden-mobile">
+      <div class="cards-slider-wrapper">
+        <ng-container *ngIf="featureEventImgs$ | async as featureEventImgs">
+          <events-slider [featureImgs]="featureEventImgs" [title]="'Pictures from previous events'">
+          </events-slider>
+        </ng-container>
+        <div class="cards-slider-list">
+          <div class="cards-slider">
+            <card routerLink="filter" [background]="'assets/images/calendar-white.png'" [title]="'Calendar of Events'"
+              [popup]="false"></card>
+            <card *ngFor="let eve of eventsList | slice: 0:1" [event]="eve"></card>
+          </div>
+          <div class="cards-slider">
+            <card *ngFor="let eve of eventsList | slice: 1:3" [event]="eve"></card>
+          </div>
+        </div>
+      </div>
+      <div class="cards-only-wrapper">
+        <ngx-slick-carousel class="event-nav-carousel slide-nav-wrapper" #slickNav [config]="navSlideConfig">
+          <div ngxSlickItem class="slide-nav" *ngFor="let eve of eventsList | slice: 3">
+            <!-- <div ngxSlickItem class="slide-nav" (mouseup)="onMouseUp($event)" (mousedown)="onMouseDown($event)" (mousemove)="onMouseMove($event)" *ngFor="let eve of eventsList | slice:3"> -->
+
+            <card [event]="eve"></card>
+          </div>
+        </ngx-slick-carousel>
+      </div>
+    </div>
+    <div class="cards mobile">
+      <ng-container *ngIf="featureEventImgs$ | async as featureEventImgs">
+        <events-slider [featureImgs]="featureEventImgs" [title]="'Memories from Previous Events'">
+        </events-slider>
+      </ng-container>
+      <div class="cards-only-wrapper">
+        <card routerLink="filter" [background]="'assets/images/calendar-white.png'" [title]="'Calendar of Events'"
+          [popup]="false"></card>
+        <card *ngFor="let eve of eventsList" [event]="eve"></card>
+      </div>
+    </div>
+  </ng-container>
+</div>

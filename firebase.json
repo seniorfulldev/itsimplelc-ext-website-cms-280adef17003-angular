@@ -1,0 +1,60 @@
+{
+  "hosting": [{
+      "target": "itsmytown-stage-pt1",
+      "public": "dist/browser",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [{
+        "source": "**",
+        "destination": "/index.html"
+      }]
+    },
+    {
+      "target": "itsmytown-stage-dt1",
+      "public": "dist/browser",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [{
+        "source": "**",
+        "destination": "/index.html"
+      }]
+    },
+    {
+      "target": "testing",
+      "public": "dist/browser",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [{
+        "source": "**",
+        "destination": "/index.html"
+      }]
+    },
+    {
+      "target": "baldwin-ga",
+      "public": "dist/browser",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [{
+        "source": "**",
+        "destination": "/index.html"
+      }],
+      "redirects": [ {
+        "source": "/index.php/***",
+        "destination": "/",
+        "type": 301
+      } ]
+    }
+  ]
+}

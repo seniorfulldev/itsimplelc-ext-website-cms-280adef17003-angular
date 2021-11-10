@@ -1,0 +1,7 @@
+<ada-banner [background]="'assets/images/events.jpg'" [title]="'All Events'" [alt]="'test alt'" [longdesc]="'test long desc'"></ada-banner>
+<div class="cards-wrapper" *ngIf="sub | async">
+  <calendar [data]="events" (valueChange)="onValueChange($event)" (searchValue)="onSearch($event)"></calendar>
+  <div class="cards">
+    <card *ngFor="let item of result" [event]="item" [ngClass]="{'show':isVisible(item), 'hidden': isNone(item)}"></card>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<ngx-slick-carousel class="council-carousel" 
+        #slickConcil
+        [config]="councilSlideConfig" 
+        (init)="slickInit($event)"
+        (breakpoint)="breakpoint($event)"
+        (afterChange)="afterChange($event)"
+        (beforeChange)="beforeChange($event)">
+    <div ngxSlickItem *ngFor="let authorGroup of authorGroups" class="slide-council">
+        <a *ngFor="let author of authorGroup" routerLink="{{ author.id }}">
+            <ada-image [src]="author.imgUrl" [alt]="'test alt'" [longdesc]="'test long description'" [fit]="'contain'"></ada-image>
+            <p>{{ author.name }}</p>
+            <p>{{ author.title }}</p>
+        </a>
+    </div>
+</ngx-slick-carousel>
+<ngx-slick-carousel class="council-carousel-mobile" 
+        #slickConcilMobile
+        [config]="councilSlideConfig" 
+        (init)="slickInit($event)"
+        (breakpoint)="breakpoint($event)"
+        (afterChange)="afterChange($event)"
+        (beforeChange)="beforeChange($event)">
+    <div ngxSlickItem *ngFor="let authorGroup of authorMobileGroups" class="slide-council">
+        <a *ngFor="let author of authorGroup" routerLink="{{ author.id }}">
+            <ada-image [src]="author.imgUrl" [alt]="'test alt'" [longdesc]="'test long description'" [fit]="'contain'"></ada-image>
+            <p>{{ author.name }}</p>
+            <p>{{ author.title }}</p>
+        </a>
+    </div>
+</ngx-slick-carousel>

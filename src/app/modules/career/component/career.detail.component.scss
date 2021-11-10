@@ -1,0 +1,99 @@
+.job-detail-wrapper {
+    max-width: 1200px;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 20px auto;
+    font-size: 18px;
+    .job-title {
+        width: 100%;
+        font-size: 30px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    .job-content-wrapper {
+        display: flex;
+        justify-content: center;
+        flex-flow: row wrap;
+        width: 100%;
+
+        .job-images {
+            width: 28%;
+            max-height: 300px;
+            @media only screen and (max-width: 500px) {
+                width: 100%;
+            }
+            .img-slider {
+                display: block;
+                overflow: hidden;
+                max-width: 580px;
+                margin: 0 auto;
+                height: 100%;
+                .slider-content {
+                    display: flex;
+                    flex-direction: column;
+                    height: 100%;
+                
+                    .slick-job-carousel {
+                      flex: 1;
+                    }
+                }
+            }
+        }
+        .job-detail {
+            display: flex;
+            flex-direction: column;
+            width: 70%;
+            padding-left: 30px;
+            @media only screen and (max-width: 500px) {
+                width: 100%;
+                padding-left: 0;
+            }
+            .job-type {
+            }
+            .job-date {
+            }
+            .job-department {
+            }
+            .job-description {
+                width: 100%;
+                font-size: 18px;
+                margin: 20px 0 40px 0;
+                // margin-bottom: 40px;
+            }
+            p span {
+                font-weight: 600;
+            }
+            .set-items {
+                width: 100%;
+                margin-top: 10px;
+                .submit {
+                    padding: 0 30px;
+                    color: #ffffff;
+                    font-family: Roboto;
+                    background-color: #2575AA;
+                    border-radius: 5px;
+                    float: right;
+                    cursor: pointer;
+                    @media only screen and (max-width: 500px) {
+                        padding: 4px 40px;
+                        float: unset;
+                    }
+                }
+                @media only screen and (max-width: 800px) {
+                    .mat-radio-group {
+                        font-size: 16px;
+                        vertical-align: sub;
+                    }
+                    .submit {
+                        margin-right: 10px;
+                    }
+                }
+                @media only screen and (max-width: 500px) {
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+}

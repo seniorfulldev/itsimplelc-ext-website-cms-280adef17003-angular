@@ -1,0 +1,20 @@
+<ada-banner [background]="'assets/images/events.jpg'" [title]="'Events'" [alt]="'test alt'" [longdesc]="'test long desc'"></ada-banner>
+
+<ng-container *ngIf="event$ | async as event">
+  <div class="event-detail-wrapper">
+    <ada-image class="event_top_ada" [src]="event.image" [alt]="'test alt'" [longdesc]="'test long description'"></ada-image>
+      <div class="event-detail">
+        <p class="heading"> {{ displayDate }}<br/><span class="title">{{ event.name }}</span> </p>
+        <p> {{ event.details }} </p>
+        <p> <span class="sub-title">Place</span> <br/>{{ event.placeName }} <br/> {{ event.placeAddress }} </p>
+        <p> <span class="sub-title">Phone</span> <br/>
+        <!-- <p> <span class="sub-title">Time</span> <br/>{{ startTimeString }} - {{ endTimeString }} </p> -->
+        <a href="tel:{{ event.phone }}" >{{ event.phone }}</a>
+        <!-- <a href="tel:{{ event.phone }}" ><i class="icon ion-md-call"></i></a> -->
+        <a class="e_mail" href="mailto:{{ event.email }}"><i class="icon ion-ios-mail"></i></a>
+        <a href="{{ event.link }}" target="_blank" class="link"><svg xmlns="http://www.w3.org/2000/svg" id="link" viewBox="0 0 409 409"><path d="M156.93,44.28c6.66,1.77,13.89,2.44,19.86,5.53,12,6.18,24.86,11.93,34.46,21,29.52,27.79,58,56.72,86.28,85.81,39.57,40.68,33.78,109-11.45,141.42-6.83,4.89-14,7.25-21.91,2.59-6.52-3.85-9.11-10.13-7.27-17.06a23.16,23.16,0,0,1,7.58-11.6c32.1-25,35.23-65.09,6.74-93.87q-40.59-41-81.6-81.53C171.4,78.61,149.55,72.92,125.4,81.77s-37.54,26.94-40,52.41c-1.77,18.47,4.68,34.51,17.74,47.69,19.39,19.57,38.93,39,58.4,58.48,1.29,1.28,2.63,2.52,3.84,3.86,6.86,7.57,6.92,17.87.18,24.44S149,275.47,142,268.48C119.1,246,96.17,223.48,74,200.26,62.35,188,56,172.5,53.18,155.72a55.93,55.93,0,0,0-1.68-6V127.9A22.4,22.4,0,0,0,53,123.8C57.1,98.53,69.67,78.45,89.86,62.91c13.41-10.33,29.21-14.77,45.26-18.63Z" transform="translate(-51.5 -44.28)"/><path d="M355.07,453.27c-9.2-2.72-18.94-4.33-27.44-8.47-9.64-4.71-19.32-10.5-27-17.9q-44.11-42.58-86.85-86.59c-38.64-39.63-33.3-106,10.76-139.55,9.7-7.4,20.17-6.78,26.4,1.55,6,8,3.78,18.1-5.49,25.25-29,22.38-32.67,62.9-7.12,89.33q42.32,43.76,86.08,86.09c23.35,22.67,60.91,22,83.72-.45,24.15-23.8,25.19-61.12,1.64-85.7-20.32-21.2-41.41-41.67-62.17-62.46-8.55-8.56-9.56-18.13-2.65-25.49,7.1-7.56,17.71-7,26.33,1.54q30.33,30.08,60.55,60.23c15.09,15,24.42,32.82,27.2,54a12.12,12.12,0,0,0,1.45,3.19v20a60.75,60.75,0,0,0-1.61,6c-4.26,26.08-17.43,46.6-38.65,62.1-13.49,9.86-29.16,14.05-45.18,17.31Z" transform="translate(-51.5 -44.28)"/></svg></a>
+      </p>
+      </div>
+    <ada-image class="event_btm_ada" [src]="event.image" [alt]="'test alt'" [longdesc]="'test long description'"></ada-image>
+  </div>
+</ng-container>

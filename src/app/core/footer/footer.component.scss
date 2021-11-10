@@ -1,0 +1,286 @@
+footer {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  color: #000000;
+  border-top: 1px solid #ccc;
+
+
+  .copyright {
+    margin-top: -30px;
+    padding-left: 6vw;
+    margin-bottom: 0px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+
+    background-color: #f1f1f1;
+    ada-image {
+      display: inline-block;
+      height: 30px;
+      width: 20px;
+      margin-right: 2px;
+      vertical-align: middle;
+    }
+    .app-link {
+      span {
+        color: #000000;
+        border-bottom: 1.5px solid #000000;
+        font-weight: bold;
+      }
+    }
+    .app-link:hover {
+      text-decoration: none;
+    }
+    @media only screen and (max-width: 520px) {
+      padding-left: 25px;
+      padding-bottom: 20px;
+      padding-top: 12px;
+    }
+  }
+
+  .footer-wrapper {
+    padding: 12px 16px 15px 6vw;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: wrap;
+    min-height: 160px;
+    background-color: #e1e1e1;
+
+    @media only screen and (max-width: 520px) {
+      padding: 20px;
+    }
+
+    @media only screen and (max-width: 520px) {
+      padding: 20px;
+    }
+    .details {
+      flex: 1;
+
+      @media only screen and (max-width: 1200px) {
+        flex: 2;
+      }
+      @media only screen and (max-width: 520px) {
+        flex: 0 0 100%;
+      }
+
+      a {
+        margin: 0;
+        line-height: 26px;
+        font-weight: 100;
+        display: block;
+        color: #000000;
+
+        &.name {
+          font-weight: 900;
+        }
+
+        &:hover {
+          text-decoration: none;
+        }
+
+        mat-icon {
+          font-size: 18px;
+          vertical-align: text-top;
+        }
+
+        span {
+          // display: inline-block;
+          vertical-align: top;
+          // width: 150px;
+        }
+      }
+    }
+
+    .details a:last-child {
+      margin-bottom: 20px;
+    }
+
+    .links {
+      flex: 0.8;
+      display: flex;
+      min-width: 250px;
+      @media only screen and (max-width: 1200px) {
+        min-width: 220px;
+      }
+      @media only screen and (max-width: 1050px) {
+        min-width: 180px;
+      }
+      @media only screen and (max-width: 520px) {
+        margin-top: 30px;
+      }
+      @media only screen and (max-width: 460px) {
+        flex: 0 0 100%;
+        padding: 0 60px;
+        margin-top: 0;
+      }
+
+      .verify-link {
+        flex: 1;
+        max-height: 130px;
+      }
+      .save-link {
+        flex: 1;
+        margin: 0 35px;
+        max-height: 130px;
+        @media only screen and (max-width: 1050px) {
+          margin: 0 15px;
+        }
+        @media only screen and (max-width: 460px) {
+          margin-right: 0;
+        }
+      }
+
+    }
+    .download-link {
+      flex: 1.8;
+      padding-top: 12px;
+      text-align: center;
+      @media only screen and (max-width: 1200px) {
+        flex: 1;
+        svg {
+          width: 300px;
+        }
+      }
+      @media only screen and (max-width: 1050px) {
+        svg {
+          width: 250px;
+        }
+      }
+      @media only screen and (max-width: 460px) {
+        width: 100%;
+        display: block;
+        margin: 0 auto;
+        padding-top: 0;
+        text-align: center;
+        svg {
+          width: 300px;
+        }
+      }
+    }
+    .social-links-wrapper {
+      width: 300px;
+      flex: 1;
+      padding-bottom: 30px;
+      // margin-bottom: 30px;
+      padding-right: 30px;
+      @media only screen and (max-width: 1200px) {
+        width: 250px;
+      }
+      @media only screen and (max-width: 1024px) {
+        padding-right: 10px;
+      }
+      @media only screen and (max-width: 520px) {
+        flex: 0 0 45%;
+      }
+
+      .social-links {
+        display: flex;
+        width: 250px;
+        flex-flow: row wrap;
+        align-items: flex-end;
+        border-radius: 8px;
+        padding: 8px 13px;
+
+        @media only screen and (max-width: 800px) {
+          flex-flow: row;
+          width: 100%;
+        }
+        @media only screen and (max-width: 520px) {
+          flex-flow: row wrap;
+          width: 210%;
+          padding: 1px 0;
+        }
+        @media only screen and (max-width: 380px) {
+          width: 190%;
+          padding: 1px 0;
+        }
+        @media only screen and (max-width: 320px) {
+          width: 160%;
+          padding: 1px 0;
+        }
+
+        a {
+          text-decoration: none;
+          vertical-align: bottom;
+          line-height: 0;
+          height: 30px;
+          color: #ccc;
+          flex: 0 0 25%;
+          @media only screen and (max-width: 520px) {
+            height: 36px;
+            padding-right: 6px;
+            flex: 1;
+          }
+
+          ada-image {
+            width: 100%;
+            height: 100%;
+            display: block;
+          }
+
+          &.app-link{
+            flex: 1 1 100%;
+            height: initial;
+            padding: 0 17px 10px 17px;
+            @media only screen and (max-width: 520px) {
+              padding: 0 5px 10px 5px;
+            }
+          }
+
+        }
+        .social-links-group {
+            display: flex;
+            width: 160px;
+            margin: 0 auto;
+            min-height: 30px;
+            flex-flow: wrap;
+            @media only screen and (max-width: 800px) {
+              width: 300px;
+              a {
+                height: 36px;
+              }
+            }
+            @media only screen and (max-width: 520px) {
+              width: 180px;
+              height: 36px;
+              a {
+                padding-right: 8px;
+                padding-left: 8px;
+              }
+            }
+            ada-image {
+              width: 100%;
+              height: 80%;
+              display: block;
+            }
+
+        }
+        .mt-30 {
+          margin-top: 30px;
+          @media only screen and (max-width: 800px) {
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+  }
+  .before {
+    margin: 0 auto;
+    @media only screen and (max-width: 2520px) {
+      width: 172px;
+      padding-top: 3px;
+      padding-bottom: 10px;
+    }
+    @media only screen and (max-width: 800px) {
+      width: 210px;
+      padding-bottom: 0;
+    }
+    @media only screen and (max-width: 500px) {
+      width: 185px;
+    }
+    @media only screen and (max-width: 400px) {
+    padding: 0 5px;
+    }
+  }
+
+}

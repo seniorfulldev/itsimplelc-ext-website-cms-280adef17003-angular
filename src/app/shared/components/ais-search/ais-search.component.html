@@ -1,0 +1,33 @@
+<mat-form-field appearance="outline">
+  <input
+    type="text"
+    matInput
+    placeholder="How can we help?"
+    [formControl]="searchControl"
+    [matAutocomplete]="auto"
+  />
+  <span class="suffix-icon-group">
+    <mat-icon
+      matSuffix
+      *ngIf="!!searchControl.value?.trim()"
+      (click)="onClearInput()"
+      >clear</mat-icon
+    >
+    <mat-icon matSuffix>search</mat-icon>
+  </span>
+  <mat-autocomplete #auto="matAutocomplete">
+    <mat-option
+      *ngFor="let obj of searchedObjsOfIndex"
+      matTooltip="{{getObjContent(obj)}}"
+      matTooltipClass="tooltipMultipleLine"
+      (click) = onDirectToPage(obj);
+    >
+      <img *ngIf="obj.imageUrl; else kindIcon" [src]="obj.imageUrl" width="50" />
+      <ng-template #kindIcon><mat-icon class="kindIcon">{{kindIconList[obj.kind]}}</mat-icon></ng-template>
+      <div class="matOptionDiv">
+        <span class = "highlight" [innerHTML]="obj._highlightResult.title.value | safehtml"></span>
+        <small class = "highlight" *ngIf="obj.description && !isHTML(obj.description)" [innerHTML]="obj._highlightResult.description.value | safehtml"></small>
+      </div>
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>

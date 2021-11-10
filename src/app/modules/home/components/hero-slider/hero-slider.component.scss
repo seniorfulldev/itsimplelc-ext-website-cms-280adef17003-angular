@@ -1,0 +1,124 @@
+.home-wrapper {
+  display: block;
+  height: 100%;
+  .impression-slider {
+    display: block;
+    width: 100%;
+    height: 540px;
+    // overflow: overlay;
+  }
+  .menu-slider-wrapper {
+    display: flex;
+    width: 100%;
+    min-height: 112px;
+    padding-top: 30px;
+
+    .slider-wrapper {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      .nav-carousel {
+        margin-top: 25px;
+        width: 100%;
+    
+        .slide-nav {
+          // width: 80px;
+          height: 80px;
+          color: #000000;
+          background-color: #ffffff;
+          background-size: 100% 100%;
+          border: 1px solid #000000;
+          border-radius: 50%;
+          margin: 0 15px;
+          outline: none;
+          // opacity: .8;
+    
+          &:hover {
+            opacity: .8;
+          }
+    
+          .slide-item-content {
+            width: 50px;
+            padding-top: 85px;
+            position: relative;
+            margin: 0 auto;
+    
+            @media only screen and (min-width: 1751px) {
+              // width: 70px;
+              // padding-top: 150px;
+              // margin: 0 auto;
+            }
+    
+            a {
+              position: absolute;
+              top: 0;
+              right: 0;
+              left: 0;
+              bottom: 0;
+              text-decoration: none;
+              color: #fff;
+              height: 100%;
+              outline: none;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              opacity: 1;
+    
+              &.disabled {
+                pointer-events: none;
+                cursor: default;
+              }
+    
+              span {
+                line-height: 20px;
+                text-align: center;
+                display: block;
+                font-size: 12px;
+                margin-top: 2px;
+                margin-bottom: 2px;
+                color: #000000;
+              }
+    
+              ada-image {
+                height: 50%;
+                margin: 0 auto;
+                fill: white;
+                .ada-image-wrapper {
+                  img {
+                    width: 50px !important;
+                  }
+                }
+              }
+    
+            }
+    
+          }
+    
+        }
+      }
+      .slide-nav-wrapper {
+        position: relative;
+        width: 952px;
+        left: -26px;
+        margin: 17px auto;
+        padding-left: 35px;
+        // @media only screen and (max-width: 1320px) {
+        //   width: 760px;
+        // }
+        // @media only screen and (max-width: 1200px) {
+        //   width: 640px;
+        // }
+        @media only screen and (max-width: 1041px) {
+          width: 500px;
+        }
+        // @media only screen and (max-width: 800px) {
+        //   width: 680px;
+        // }
+        @media only screen and (max-width: 535px) {
+          width: 280px;
+        }
+      }
+    }
+  
+  }
+}

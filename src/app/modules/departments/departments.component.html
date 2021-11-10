@@ -1,0 +1,52 @@
+<ada-banner
+  [background]="'assets/images/department-header-image.jpg'"
+  [title]="'DEPARTMENTS'"
+  [alt]="'test alt'"
+  [longdesc]="'test long desc'"
+>
+</ada-banner>
+<div class="departments-wrapper">
+  <div *ngIf="department$ | async as departments">
+    <div *ngFor="let department of departments" class="department-wrapper">
+      <a [routerLink]="[department.id]">
+        <div class="department-background">
+          <ada-image
+            [src]="department.imgUrl"
+            [alt]="'test alt'"
+            [longdesc]="'test long description'"
+            [fit]="'contain'"
+          ></ada-image>
+        </div>
+      </a>
+      <div class="deparment-footer">
+        <div class="department-leader-img">
+          <ada-image
+            [src]="department.leaderImgUrl"
+            [alt]="'test alt'"
+            [longdesc]="'test long description'"
+            [fit]="'contain'"
+          ></ada-image>
+        </div>
+        <div class="department-footer-wrapper">
+          <div class="department-footer-content">
+            <span>{{ department.leaderTitle }}</span>
+            <a
+              *ngIf="department.phone"
+              href="tel:{{ department.phone }}"
+              target="_top"
+              ><mat-icon>call</mat-icon></a
+            >
+            <a
+              *ngIf="department.email"
+              href="mailto:{{ department.email }}"
+              target="_top"
+              class="email"
+              ><mat-icon>mail</mat-icon></a
+            >
+            <span class="department-name">{{ department.name }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

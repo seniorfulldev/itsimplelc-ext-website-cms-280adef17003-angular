@@ -1,0 +1,7 @@
+<div class="search-wrapper">
+  <mat-icon class="onpage">search</mat-icon>
+  <input type="text" [(ngModel)]="search" (input)="onEnter.emit($event.target.value)" name="search" class="search" [placeholder]="placeholder" />
+  <mat-icon class="onheader">search</mat-icon>
+  <mat-icon class="onpage" (click)="search='';onEnter.emit('')">close</mat-icon>
+  
+</div>

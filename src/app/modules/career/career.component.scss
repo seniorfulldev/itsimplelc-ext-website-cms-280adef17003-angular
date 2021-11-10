@@ -1,0 +1,119 @@
+@import '../../../assets/theme.scss';
+.career-wrapper {
+  max-width: 1000px;
+  padding: 20px;
+  box-sizing: border-box;
+  margin: 20px auto;
+  font-size: 18px;
+  .description {
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+  .search-text {
+    width: 100%;
+    @media only screen and (max-width: 520px) {
+      width: 98%;
+    }
+  }
+  .job-list-desktop {
+    table {
+      width: 100%;
+      tr {
+        line-height: 36px;
+        td {
+          a {
+            color: #2575aa;
+          }
+          button {
+            text-decoration: none;
+            box-shadow: none;
+            border: none;
+            color: #ffffff;
+            background-color: #2575aa;
+            border-radius: 4px;
+            padding: 3px 10px;
+            font-size: 14px;
+            &:focus {
+              outline: none;
+            }
+          }
+          // @media only screen and (max-width: 520px) {
+          //   padding-left: 4px;
+          //   border-bottom: 1px solid #b9b9b9;
+          // }
+        }
+      }
+      .header-tr {
+        border-bottom: 2px solid #b9b9b9;
+        th:nth-child(1) {
+          width: 34%;
+        }
+        th:nth-child(2) {
+          width: 16%;
+        }
+        th:nth-child(3) {
+          width: 16%;
+        }
+        th:nth-child(4) {
+          width: 27%;
+        }
+        // th:nth-child(5) {
+        //     width: 18%;
+        // }
+
+        // @media only screen and (max-width: 800px) {
+        //   th:nth-child(2),
+        //   th:nth-child(3) {
+        //     width: 15%;
+        //   }
+        // }
+        // @media only screen and (max-width: 520px) {
+        //   th:nth-child(2) {
+        //     width: 20%;
+        //   }
+        // }
+      }
+    }
+    @media only screen and (max-width: 520px) {
+      display: none;
+    }
+  }
+  .mobile-table {
+    display: none;
+    @media only screen and (max-width: 520px) {
+      display: block;
+      .table-header {
+        color: #fff;
+        padding: 0 10px;
+        background: $theme-blue;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .job-title {
+          color: white;
+        }
+
+        button {
+          border-radius: 5px;
+          background-color: white;
+          height: 20px;
+          font-size: 12px;
+        }
+
+        a {
+          text-decoration: underline;
+        }
+      }
+      ul {
+        margin-left: -12px;
+      }
+      // .nodata {
+      //   font-size: 20px;
+      //   text-align: center;
+      //   margin-top: 30px;
+      // }
+    }
+  }
+}

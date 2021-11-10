@@ -1,0 +1,13 @@
+<ada-banner [background]="'assets/images/news.jpg'" [title]="'City News'" [alt]="'test alt'" [longdesc]="'test long desc'"></ada-banner>
+<div class="news-wrapper">
+  <app-search [placeholder]="'Search in News'" (onEnter)="onSearch($event)"></app-search>
+  <ng-container *ngIf="news$ | async">
+    <div class="card-block">
+      <news-card *ngFor="let index of news;
+      let isOdd=odd;
+      let isEven=even"
+  [class.odd]="isOdd" 
+  [class.even]="isEven" [news]="index" [ngClass]="{'show':isVisible(index), 'hidden': isNone(index)}"></news-card>
+    </div>
+  </ng-container>
+</div>

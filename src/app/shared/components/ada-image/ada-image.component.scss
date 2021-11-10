@@ -1,0 +1,39 @@
+.ada-image-wrapper {
+  width: 100%;
+  height: 100%;
+
+  alt {
+    display: none;
+  }
+
+  longdesc {
+    display: none;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    // display: block;
+
+    &.contain {
+      object-fit: contain;
+    }
+  }
+  video {
+    width: 100%;
+    height: 95%;
+    object-fit: cover;
+    // display: block;
+    @media only screen and (max-width: 900px) {
+      height: 27vw;
+    }
+    @media only screen and (max-width: 520px) {
+      height: 30vh;
+    }
+
+    &.contain {
+      object-fit: contain;
+    }
+  }
+}

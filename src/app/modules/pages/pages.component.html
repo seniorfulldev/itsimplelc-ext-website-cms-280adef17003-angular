@@ -1,0 +1,12 @@
+<ng-container *ngIf="page$ | async as page">
+  <ada-banner [background]="'assets/images/about.jpg'" [title]="page.title" [alt]="'test alt'" [longdesc]="'test long desc'" [style]="'center'"></ada-banner>
+  <div class="custom-pages-wrapper">
+    <div [innerHTML]="page?.content | safeHtml">
+    </div>
+  </div>
+  <div class="multimedia-wrapper">
+    <div *ngIf="page.videoUrl" class="iframe_banner_video custom-page-video" [innerHtml]="this.iframe_html" [ngStyle]="{ 'background-position': 'center '}"></div>
+    
+    <div class="pages-image"><img *ngIf="page.imgUrl" [src] = "page.imgUrl"/></div>
+  </div>
+</ng-container>

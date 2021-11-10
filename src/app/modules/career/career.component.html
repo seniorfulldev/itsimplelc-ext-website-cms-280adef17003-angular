@@ -1,0 +1,66 @@
+<ada-banner
+  [background]="'assets/images/career_image.jpg'"
+  [title]="'career'"
+  [alt]="'test alt'"
+  [longdesc]="'test long desc'"
+></ada-banner>
+<div class="career-wrapper" *ngIf="sub | async">
+  <p
+    class="description"
+    [innerHTML]="jobDescription[0]?.generalInfo | safeHtml"
+  >
+    <!-- The City of South Fulton, Georgia is committed to creating a positive and inspiring place to work in service to our citizens. We invite interested applicants to apply for an opportunity that will motivate them to bring their unique experience, creativity and enthusiasm to their job. Explore our career openings to learn more about the exciting job that awaits you in the emerging City of South Fulton, Georgia. -->
+  </p>
+
+  <mat-form-field appearance="outline" class="search-text">
+    <mat-label>Type any keyword to search</mat-label>
+    <input
+      matInput
+      type="text"
+      [(ngModel)]="keyWords"
+      (input)="onSearchByKeywords()"
+    />
+    <mat-icon class="icon ion-md-close clear-search" (click)="clear()" matSuffix
+      >close</mat-icon
+    >
+  </mat-form-field>
+
+  <div class="job-list-desktop">
+    <table>
+      <tr class="header-tr">
+        <th>Job Title</th>
+        <th>Job Type</th>
+        <th>Posted</th>
+        <th>Department</th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let job of result">
+        <td>
+          <a routerLink="{{ job.id }}"> {{ job.title }} </a>
+        </td>
+        <td>{{ job.type }}</td>
+        <td>{{ job.postedDate | date }}</td>
+        <td>{{ job.department }}</td>
+        <td><button (click)="onMailto(job)">Apply</button></td>
+      </tr>
+      <tr *ngIf="jobs?.length > 0 && result.length ==0">
+        No jobs are found!
+      </tr>
+    </table>
+  </div>
+
+  <div class="mobile-table">
+    <div *ngFor="let job of result">
+      <div class="table-header">
+        <a [routerLink]="[job.id]" class="job-title">{{ job.title }}</a>
+        <button mart-raised-button class="apply-button" (click)="onMailto(job)">Apply</button>
+      </div>
+      <ul>
+        <li>Job Type: {{ job.type }}</li>
+        <li>Posted: {{ job.postedDate | date }}</li>
+        <li>Department: {{ job.department }}</li>
+      </ul>
+    </div>
+    <p *ngIf="jobs?.length > 0 && result.length ==0" >No jobs are found!</p>
+  </div>
+</div>

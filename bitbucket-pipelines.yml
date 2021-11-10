@@ -1,0 +1,62 @@
+image: node:12.9
+pipelines:
+  branches:
+    develop:
+      - step:
+          name: "Build Staging/DEV"
+          caches:
+            - node
+          script:
+            - yarn
+            - yarn build
+          artifacts:
+            - dist/**
+      - step:
+          name: "Deployment to Staging/DEV"
+          script:
+            - yarn global add firebase-tools
+            - firebase deploy --token=$FIREBASE_TOKEN --project its-my-town-stage --only hosting:itsmytown-stage-dt1 --non-interactive
+      - step:
+          name: "Build baldwin-ga/TEST"
+          caches:
+            - node
+          script:
+            - yarn
+            - yarn ng build -c baldwin-ga
+          artifacts:
+            - dist/**
+      - step:
+          name: "Deployment to baldwin-ga/TEST"
+          script:
+            - yarn global add firebase-tools
+            - firebase deploy --token=$FIREBASE_TOKEN --project its-my-town-stage --only hosting:testing --non-interactive
+    master:
+      - step:
+          name: "Build Staging/PROD"
+          caches:
+            - node
+          script:
+            - yarn
+            - yarn build --prod
+          artifacts:
+            - dist/**
+      - step:
+          name: "Deployment to Staging/DEV"
+          script:
+            - yarn global add firebase-tools
+            - firebase deploy --token=$FIREBASE_TOKEN --project its-my-town-stage --only hosting:itsmytown-stage-pt1 --non-interactive
+  default:  #This pipeline will run for every branch which is not defnied above
+    - step:
+        name: "Build Staging/DEV"
+        caches:
+          - node
+        script:
+          - yarn
+          - yarn build
+    - step:
+        name: "Build Staging/PROD"
+        caches:
+          - node
+        script:
+          - yarn
+          - yarn build --prod

@@ -1,0 +1,52 @@
+<div class="home-wrapper">
+  <ada-image [src]="featuredImg" class="impression-slider" [alt]="'test alt'" [longdesc]="'test long description'"></ada-image>
+  <div class="menu-slider-wrapper">
+    <div class="slider-wrapper">
+        <ngx-slick-carousel class="nav-carousel slide-nav-wrapper"
+                #slickNav
+                [config]="navSlideConfig">
+            <!-- <div ngxSlickItem class="slide-nav" (mouseup)="onMouseUp($event)" (mousedown)="onMouseDown($event)" (mousemove)="onMouseMove($event)">
+                <div class="slide-item-content">
+                    <a routerLink="popular" [class.disabled]="isDisabled()? true: null"><ada-image [src]="'assets/images/popular-black.png'" [alt]="'test alt'" [longdesc]="'test long description'" [fit]="'contain'"></ada-image><span>Popular</span></a>
+                </div>
+            </div> -->
+            <div ngxSlickItem class="slide-nav" (mouseup)="onMouseUp($event)" (mousedown)="onMouseDown($event)" (mousemove)="onMouseMove($event)">
+                <div class="slide-item-content">
+                    <a routerLink="events" [class.disabled]="isDisabled()? true: null"><ada-image [src]="'assets/images/event-calendar.svg'" [alt]="'test alt'" [longdesc]="'test long description'" [fit]="'contain'"></ada-image><span>Events</span></a>
+                </div>
+            </div>
+            <div ngxSlickItem class="slide-nav" (mouseup)="onMouseUp($event)" (mousedown)="onMouseDown($event)" (mousemove)="onMouseMove($event)">
+                <div class="slide-item-content">
+                    <a routerLink="news" [class.disabled]="isDisabled()? true: null"><ada-image [src]="'assets/images/megaphone.svg'" [alt]="'test alt'" [longdesc]="'test long description'" [fit]="'contain'"></ada-image><span>News</span></a>
+                </div>
+            </div>
+            <div ngxSlickItem class="slide-nav" (mouseup)="onMouseUp($event)" (mousedown)="onMouseDown($event)" (mousemove)="onMouseMove($event)">
+                <div class="slide-item-content">
+                    <a routerLink="places" [class.disabled]="isDisabled()? true: null"><ada-image [src]="'assets/images/places.svg'" [alt]="'test alt'" [longdesc]="'test long description'" [fit]="'contain'"></ada-image><span>Places</span></a>
+                </div>
+            </div>
+            <div ngxSlickItem class="slide-nav" (mouseup)="onMouseUp($event)" (mousedown)="onMouseDown($event)" (mousemove)="onMouseMove($event)">
+                <div class="slide-item-content">
+                    <a routerLink="directory" [class.disabled]="isDisabled()? true: null"><ada-image [src]="'assets/images/people-black.png'" [alt]="'test alt'" [longdesc]="'test long description'" [fit]="'contain'"></ada-image><span>Directory</span></a>
+                </div>
+            </div>
+            <div ngxSlickItem class="slide-nav" (mouseup)="onMouseUp($event)" (mousedown)="onMouseDown($event)" (mousemove)="onMouseMove($event)">
+                <div class="slide-item-content reportcls">
+                    <a routerLink="reports" [class.disabled]="isDisabled()? true: null"><ada-image [src]="'assets/images/send-report.svg'" [alt]="'test alt'" [longdesc]="'test long description'" [fit]="'contain'"></ada-image><span>Report</span></a>
+                </div>
+            </div>
+            <div ngxSlickItem class="slide-nav" (mouseup)="onMouseUp($event)" (mousedown)="onMouseDown($event)" (mousemove)="onMouseMove($event)">
+                <div class="slide-item-content">
+                    <a routerLink="council" [class.disabled]="isDisabled()? true: null"><ada-image [src]="'assets/images/council.svg'" [alt]="'test alt'" [longdesc]="'test long description'" [fit]="'contain'"></ada-image><span>Council</span></a>
+                </div>
+            </div>
+            <div ngxSlickItem class="slide-nav" (mouseup)="onMouseUp($event)" (mousedown)="onMouseDown($event)" (mousemove)="onMouseMove($event)">
+                <div class="slide-item-content">
+                    <a routerLink="services" [class.disabled]="isDisabled()? true: null"><ada-image [src]="'assets/images/services.svg'" [alt]="'test alt'" [longdesc]="'test long description'" [fit]="'contain'"></ada-image><span>Services</span></a>
+                </div>
+            </div>
+
+        </ngx-slick-carousel>
+    </div>
+  </div>
+</div>

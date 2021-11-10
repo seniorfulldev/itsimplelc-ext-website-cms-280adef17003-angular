@@ -1,0 +1,64 @@
+<ng-container *ngIf="isValidCity; else invalidCity">
+  <hero-slider [featureImgs]="featureImgs"></hero-slider>
+  <div class="separate-line"></div>
+  <div class="municipal-wrapper">
+    <p class="main-title">MUNICIPAL SERVICES</p>
+    <ng-container *ngIf="highlights$ | async as highlights">
+      <div class="service-cards">
+        <div class="service-card" *ngFor="let service of highlights">
+          <div class="service-card-wrapper">
+            <a [routerLink]="service.value || '/' " class="impression-slider">
+              <ada-image [src]="service.imgUrl" [alt]="'test alt'" [longdesc]="'test long description'"></ada-image>
+            </a>
+            <p class="title">{{ service.title }}</p>
+            <p class="description">
+              {{ service.description }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  <div class="tip-div">
+    For more services from {{ tenant }} use the top menu
+  </div>
+  <div class="latest-news-title">
+    <p>LATEST NEWS</p>
+  </div>
+  <ng-container *ngIf="news$ | async as news">
+    <div class="latest-news-wrapper">
+      <app-newscard *ngFor="let index of news | slice: 0:3" class="latest-news" [news]="index"></app-newscard>
+    </div>
+  </ng-container>
+  <a class="more-news" routerLink="news">More News</a>
+  <div class="separate-line"></div>
+  <div class="month-events-title">
+    <p>UPCOMING EVENTS</p>
+  </div>
+  <ng-container *ngIf="siderbarEvents$ | async as siderbarEvents">
+    <div class="month-events-wrapper">
+      <events-slider [featureImgs]="settings?.featureEventImgs" [title]="'Pictures from previous events'">
+      </events-slider>
+      <div class="cards-slider-list">
+        <div class="home-cards-slider">
+          <card routerLink="events/filter" class="calendar-card" [background]="'assets/images/calendar-white.png'"
+            [title]="'Calendar of Events'" [popup]="false"></card>
+          <card *ngFor="let eve of siderbarEvents | slice: snFStart:snFEnd" class="eve-desktop" [event]="eve"></card>
+          <!-- <card *ngFor="let eve of siderbarEvents | slice: 0:1" class="eve-ipad" [event]="eve"></card> -->
+          <img class="card-slider-next" src="assets/images/right-btn.svg" (click)="onSliderTotal()" />
+        </div>
+        <div class="home-cards-slider">
+          <card *ngFor="let eve of siderbarEvents | slice: snSStart:snSEnd" class="eve-desktop" [event]="eve"></card>
+          <!-- <card *ngFor="let eve of siderbarEvents | slice: 1:3" class="eve-ipad" [event]="eve"></card> -->
+          <img class="card-slider-next" src="assets/images/right-btn.svg" (click)="onSlider()" />
+        </div>
+      </div>
+      <p class="all-events" routerLink="events">More Events</p>
+    </div>
+  </ng-container>
+</ng-container>
+<ng-template #invalidCity>
+  <div *ngIf="!isValidCity" class="invalid">
+    Invalid City! Please load valid city
+  </div>
+</ng-template>

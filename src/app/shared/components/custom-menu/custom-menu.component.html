@@ -1,0 +1,23 @@
+<div class="custom-menu-wrapper">
+  <ng-container *ngIf="sub | async">
+    <div *ngIf="sections?.length" class="nav-header" (click)="isNavExpanded()"><span>Navigate to</span><mat-icon class="mat-icon-rtl-mirror">
+      {{isNavExpand? 'arrow_right' : 'arrow_drop_down'}}
+    </mat-icon></div>
+    <div class="menu-section" [hidden]="isNavExpand" *ngFor="let section of sections; let i = index">
+      <div class="menu-header">
+        <mat-icon class="mat-icon-rtl-mirror" (click)="istoggle(i)">
+          {{isExpanded(i) ? 'arrow_drop_down' : 'arrow_right'}}
+        </mat-icon>
+        <span>{{section.header}}</span>
+      </div>
+      <div class="menu-items menu-{{i}}">
+        <div class="menu-item" *ngFor="let item of section.items">
+          <a *ngIf="!isLink(item.value) else linkTemplate;" routerLink="pages/{{item.value}}"><span>{{item.title}}</span></a>
+          <ng-template #linkTemplate>
+            <a *ngIf="isLink(item.value)" href="{{item.value}}" target="_blank"><span>{{item.title}}</span></a>
+          </ng-template>          
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

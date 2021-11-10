@@ -1,0 +1,142 @@
+  <ada-banner
+    [background]="'../../../assets/images/council_meeting_image.jpg'"
+    [title]="'Council Meetings'"
+    [alt]="'test alt'"
+    [longdesc]="'test long desc'"
+  ></ada-banner>
+  <div class="council-wrapper" (click)="clearCalendar($event)">
+    <ng-container *ngIf="councilMeetingsGeneralInfo$ | async as councilMeetingsGeneralInfo">
+      <p *ngIf="councilMeetingsGeneralInfo.length" class="description" [innerHTML] = "councilMeetingsGeneralInfo[0].generalInfo | safeHtml"></p>
+    </ng-container>
+    <div *ngIf="sub | async" class="data-container">
+      <div class="data-table-container">
+        <div class="more-agendas-view">
+          <folder
+            *ngFor="let cmy of councilMeetingsByYear_years"
+            (click)="onFilterCouncilMeetingsByYear(cmy)"
+            [year]="cmy"
+            [selected]="selectedYear.indexOf(cmy) !== -1"
+          ></folder>
+        </div>
+        <div class="data-filter mobile">
+          <div class="council-search-wrapper">
+            <p class="date-range">Date Range:</p>
+            <div class="data-search-container">
+              <ngbd-datepicker-popup (onEnter)="onSearchByDate()"></ngbd-datepicker-popup>
+              <mat-icon *ngIf="!isDate">calendar_today</mat-icon>
+              <mat-icon *ngIf="isDate" class="close-btn" (click)=clearSearchDate()>close</mat-icon>
+            </div>
+            <!-- <p class="searchbtn" (click)="onSearchByDate()">Search by Date</p> -->
+          </div>
+
+          <div class="council-search-wrapper">
+            <p class="search-key">Keywords: </p>
+            <div class="council-keyword-search">
+              <input matInput [(ngModel)]="keyWords" (input)="onSearchByKeywords()" name="keywords" class="search-input" >
+              <mat-icon *ngIf="keyWords" class="close-btn" (click)=clearSearchKeyword()>close</mat-icon>
+            </div>
+            <!-- <p class="searchbtn" (click)="onSearchByKeywords()">Search by Keywords</p> -->
+          </div>
+          <div class="desktop-print">
+            <p>Printer friendly: </p>
+              <!-- <img src="assets/images/print_icon.png" alt=""> -->
+              <mat-icon class="print_table" (click)="printTable()">print</mat-icon>
+          </div>
+        </div>
+        <div class="table-title-container">
+          <h3 class="table-title"> Council Meetings <ng-container *ngIf="year">({{year}})</ng-container></h3>
+          <mat-icon class="print_table printer_mobile" (click)="printTable()">print</mat-icon>
+        </div>
+        <div class="desktop-table">
+          <mat-table [dataSource]="dataSource" matSort>
+            <ng-container matColumnDef="title">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Meeting Name </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{ element.title }} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="date">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Date </mat-header-cell>
+              <mat-cell *matCellDef="let element">
+                {{ element.date | date }}
+              </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="agenda">
+              <mat-header-cell *matHeaderCellDef> Agenda </mat-header-cell>
+              <mat-cell *matCellDef="let element">
+                <ng-container *ngIf="element?.agenda; else notPublished">
+                  <a target="_blank" rel="noopener" [href]="element.agenda">Click here</a>
+                </ng-container>
+              </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="documents">
+              <mat-header-cell *matHeaderCellDef> Documents </mat-header-cell>
+              <mat-cell *matCellDef="let element">
+                <ng-container *ngIf="element?.documents; else notPublished">
+                  <a target="_blank" rel="noopener" [href]="element.documents">Click here</a>
+                </ng-container>
+              </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="minutes">
+              <mat-header-cell *matHeaderCellDef> Minutes </mat-header-cell>
+              <mat-cell *matCellDef="let element">
+                <ng-container *ngIf="element?.minutes; else notPublished">
+                  <a target="_blank" rel="noopener" [href]="element.minutes">Click here</a>
+                </ng-container>
+              </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="recording">
+              <mat-header-cell *matHeaderCellDef> Media Recording </mat-header-cell>
+              <mat-cell *matCellDef="let element">
+                <ng-container *ngIf="element?.audioVideo; else notPublished">
+                  <a target="_blank" rel="noopener" [href]="element.audioVideo">Click here</a>
+                </ng-container>
+              </mat-cell>
+            </ng-container>
+            <ng-template #notPublished>
+              Not Published
+            </ng-template>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+          </mat-table>
+        </div>
+        <div class="mobile-table" *ngIf="dataSource?.filteredData">
+          <div *ngFor="let cm of dataSource?.filteredData">
+            <div class="table-header">{{ cm?.title }}</div>
+            <ul>
+              <li>Date: {{ cm.date | date }}</li>
+              <li>Agenda: <a *ngIf="cm?.agenda; else notPublished" target="_blank" [href]="cm.agenda">Click here</a></li>
+              <li>Documents: <a *ngIf="cm?.documents; else notPublished" target="_blank" [href]="cm.documents">Click here</a></li>
+              <li>Minutes: <a *ngIf="cm?.minutes; else notPublished" target="_blank" [href]="cm.minutes">Click here</a></li>
+              <li>Media Recording: <a *ngIf="cm?.audioVideo; else notPublished" target="_blank" [href]="cm.audioVideo">Click here</a></li>
+            </ul>
+          </div>
+        </div>
+        <p class="nodata" *ngIf="noData">{{noData}}</p>
+      </div>
+      <div class="data-filter desktop">
+        <div class="council-search-wrapper">
+          <p>Search by Date Range:</p>
+          <div class="data-search-container">
+            <ngbd-datepicker-popup (onEnter)="onSearchByDate()" placeholder></ngbd-datepicker-popup>
+            <mat-icon *ngIf="!isDate">calendar_today</mat-icon>
+            <mat-icon *ngIf="isDate" class="close-btn" (click)=clearSearchDate()>close</mat-icon>
+          </div>
+          <!-- <p class="searchbtn" (click)="onSearchByDate()">Search by Date</p> -->
+        </div>
+
+        <div class="council-search-wrapper">
+          <p>Search by keywords: </p>
+          <div class="council-keyword-search">
+            <input matInput [(ngModel)]="keyWords" (input)="onSearchByKeywords()" name="keywords" class="search-input" >
+            <mat-icon *ngIf="keyWords" class="close-btn" (click)=clearSearchKeyword()>close</mat-icon>
+          </div>
+          <!-- <p class="searchbtn" (click)="onSearchByKeywords()">Search by Keywords</p> -->
+        </div>
+        <div>
+          <p>Printer friendly: </p>
+            <!-- <img src="assets/images/print_icon.png" alt=""> -->
+            <mat-icon class="print_table" (click)="printTable()">print</mat-icon>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,23 @@
+<div class="slider-wrapper">
+  <div class="slider-content">
+    <ng-container *ngIf="newFeatureImgs.length > 0; else empty" >
+      <ngx-slick-carousel class="slick-event-carousel"
+        #slickEventsSlider
+        [config]="slidePageConfig">
+        <div ngxSlickItem *ngFor="let featureImg of newFeatureImgs" class="slide-event">
+          <ada-image [src]="featureImg" [alt]="'test alt'" [longdesc]="'test long description'"></ada-image>
+        </div>
+      </ngx-slick-carousel>
+    </ng-container>
+    <ng-template #empty>
+      <ng-container *ngIf="sub | async">
+        <ngx-slick-carousel class="slick-event-carousel"
+        #slickEventsSlider
+        [config]="slidePageConfig">
+          <ada-image [src]="logoUrl" [alt]="'test alt'" [longdesc]="'test long description'" id="default-background"></ada-image>
+      </ngx-slick-carousel>
+      <p class="title">{{ newFeatureImgs.length !==0 ? title : 'No pictures published' }}</p>
+      </ng-container>
+    </ng-template>
+  </div>
+</div>

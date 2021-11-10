@@ -1,0 +1,26 @@
+.council-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+
+  author-card {
+    display: block;
+    padding: 0 15px;
+  }
+
+  .council-posts-wrapper {
+    display: flex;
+    flex-flow: wrap;
+    margin-top: 20px;
+
+    @media only screen and (max-width: 600px){
+      flex-direction: column;
+    }
+
+    council-card {
+      flex: 0 0 50%;
+      padding: 15px;
+      box-sizing: border-box;
+      height: 410px;
+    }
+  }
+}

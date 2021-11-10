@@ -1,0 +1,24 @@
+<div id="top-staticbar" class="top-staticbar">
+  <div class="real-time-alert">
+    <div class="alerts-bar">REAL TIME ALERTS<button class="slick-prev slick-arrow" aria-label="Previous"
+        type="button">Previous</button></div>
+        <ng-container *ngIf="alerts$ | async">
+          <ngx-slick-carousel *ngIf="dispalerts.length > 0" class="sidebar-quote-carousel" #slickQuote [config]="slideConfig">
+            <div ngxSlickItem *ngFor="let alert of dispalerts" class="slide-quote">
+              <p><span class="alert-datetime">{{ alert.createdDate | date:'medium' }}</span>&nbsp; {{ alert.message }}</p>
+            </div>
+          </ngx-slick-carousel>
+        </ng-container>
+        <span class="no-alert-tip" *ngIf="dispalerts?.length == 0">No alerts in the last 10 days</span>
+  </div>
+  <span class="date"> {{ today | date:'fullDate' }} </span>
+  <!-- <span class="date">{{ today | date:'fullDate' }} {{ today | date:'shortTime' }}</span> -->
+  <div class="weather-wrapper" *ngIf="weather$ | async as weather">
+    <img class="weather-icon" src="{{weather.tempIcon}}" />
+    <span class="temperature">{{ weather.temperature }}°</span>
+  </div>
+
+  <div id="google_translate_element"></div>
+  <!-- <custom-dropdown #translatedropdown [placeholder]="'Translate'" [options]="languages" (currentSelectionChange)="onLanguageChange($event)"></custom-dropdown> -->
+
+</div>

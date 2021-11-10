@@ -1,0 +1,21 @@
+<ada-banner [background]="'assets/images/city_hall.jpg'" [title]="'city council'" [alt]="'test alt'"
+  [longdesc]="'test long desc'" [style]="'bottom'"></ada-banner>
+<div class="council-wrapper">
+  <ng-container *ngIf="authors$ | async as authors">
+    <div class="council-slider-wrapper">
+      <council-slider [authors]="authors"></council-slider>
+      <div class="separator">
+        <div class="left-separator"> </div>
+        <ada-image [src]="'assets/images/megaphone.svg'" [alt]="'test alt'" [longdesc]="'test long description'"
+          [fit]="'contain'"></ada-image>
+        <span>Hear From the Council</span>
+        <ada-image [src]="'assets/images/megaphone.svg'" [alt]="'test alt'" [longdesc]="'test long description'"
+          [fit]="'contain'"></ada-image>
+        <div class="right-separator"> </div>
+      </div>
+    </div>
+    <div class="council-posts-wrapper" *ngIf="posts$ | async as posts">
+      <council-card *ngFor="let post of posts" [post]="post" [authors]="authors"></council-card>
+    </div>
+  </ng-container>
+</div>

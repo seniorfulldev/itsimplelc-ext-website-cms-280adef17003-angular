@@ -1,0 +1,10 @@
+<div class="council-card-wrapper">
+  <ada-image [src]="post.imgUrl" [alt]="'test alt'" [longdesc]="'test long description'"></ada-image>
+  <div class="details">
+    <p class="date">{{ startDate }}</p>
+    <p class="title">{{ post.title }}</p>
+    <p class="content">{{ post.summary }}</p>
+    <a *ngIf="post.allowFeedback"  href="mailto:{{ author.email }}?subject=Feedback%20for%20%22{{ post.title }}%22" target="_top" class="feedback">Feedback</a>
+    <a *ngIf="post.content && post.id" routerLink="posts/{{ post.id }}" class="more">Read More</a>
+  </div>
+</div>

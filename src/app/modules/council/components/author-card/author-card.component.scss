@@ -1,0 +1,85 @@
+.breadcrumbs {
+  color: white;
+  padding: 25px 0;
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+}
+.author-card-wrapper {
+  display: flex;
+  background-color: #fff;
+  border: 1px solid #b9b9b9;
+  border-top-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  overflow: hidden;
+
+  @media only screen and (max-width: 520px){
+    flex-direction: column;
+  }
+
+  .contacts-wrapper {
+    // min-width: 250px;
+    width: 300px;
+
+    ada-image{
+      display: block;
+      border-top-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      overflow: hidden;
+      width: 300px;
+      @media only screen and (max-width: 520px){
+        width: 100%;
+      }
+    }
+
+    a {
+      padding: 10px;
+      display: flex;
+      color: #000;
+
+      &:hover {
+        text-decoration: none;
+      }
+
+      i {
+        margin-right: 5px;
+        font-size: 18px;
+        display: inline-block;
+      }
+    }
+
+    .assignments {
+      flex-direction: column;
+    }
+    @media only screen and (max-width: 520px){
+      width: 100%;
+    }
+  }
+
+  .details {
+    padding: 30px;
+
+    @media only screen and (max-width: 520px){
+      padding: 10px;
+    }
+
+    .name,
+    .title {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 900;
+      line-height: 30px;
+    }
+
+    .bio {
+      margin-top: 20px;
+      margin-bottom: 0;
+
+      .bio-title {
+        font-weight: 900;
+      }
+    }
+  }
+}

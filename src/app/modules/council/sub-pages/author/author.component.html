@@ -1,0 +1,7 @@
+<ada-banner [background]="'assets/images/city_hall.jpg'" [title]="'city council'" [alt]="'test alt'" [longdesc]="'test long desc'" [style]="'bottom'"></ada-banner>
+<div class="council-wrapper" *ngIf="author$ | async as author">
+  <author-card [author]="author"></author-card>
+  <div class="council-posts-wrapper" *ngIf="posts$ | async as posts">
+    <council-card *ngFor="let post of posts" [post]="post" [authors]="authors"></council-card>
+  </div>
+</div>

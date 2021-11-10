@@ -1,0 +1,56 @@
+.council-carousel {
+  display: block;
+
+  @media only screen and (max-width: 520px) {
+    display: none;
+  }
+}
+
+.council-carousel-mobile {
+  display: none;
+
+  @media only screen and (max-width: 520px) {
+    display: block;
+  }
+}
+
+
+.slide-council {
+  display: flex;
+  flex-flow: row wrap;
+
+  a {
+    display: block;
+    text-decoration: none;
+    color: #000000;
+    outline: none;
+    padding: 5px 7px;
+    flex: 0 0 25%;
+
+    @media only screen and (max-width: 900px) {
+      // flex: 0 0 20%;
+    }
+    @media only screen and (max-width: 730px) {
+      // flex: 0 0 25%;
+    }
+    @media only screen and (max-width: 520px) {
+      flex: 0 0 33%;
+    }
+
+    ada-image {
+      display: block;
+      border-radius: 50%;
+      overflow: hidden;
+      padding: 50px 50px 17px 36px;
+      @media only screen and (max-width: 800px) {
+        padding: 0;
+      }
+    }
+
+    p {
+      margin: 0;
+      text-align: center;
+      line-height: 20px;
+    }
+  }
+}

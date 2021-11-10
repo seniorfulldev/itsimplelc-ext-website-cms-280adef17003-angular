@@ -1,0 +1,98 @@
+@import '../../../../../assets/theme.scss';
+.calendar-wrapper {
+  max-width: 950px;
+  margin: 0 auto;
+  width: 100%;
+
+  .calendar {
+    margin: 20px 10px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .header-wrapper {
+    display: flex;
+    background: $theme-blue;
+    text-align: center;
+    color: #242424;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+
+    span {
+      display: block;
+      padding: 0 10px;
+      margin: 0;
+      line-height: 60px;
+      font-size: 30px;
+      color: #ffffff;
+    }
+
+    i {
+      display: block;
+      color: #ffffff;
+
+      svg {
+        fill: #242424;
+      }
+    }
+
+    a {
+      color: #242424;
+      position: absolute;
+      right: 15px;
+      font-size: 30px;
+
+      i {
+        line-height: 0;
+      }
+    }
+  }
+
+  .buttons-wrapper {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    border: 1px solid #e1e1e1;
+
+    @media only screen and (max-width: 520px) {
+      display: block;
+      text-align: center;
+    }
+    button {
+      border: 2px solid $theme-blue;
+      color: #ffffff;
+      padding: 0 8px;
+      font-size: 16px;
+      text-decoration: none;
+      border-radius: 8px;
+      outline: none;
+      line-height: 22px;
+      background-color: $theme-blue;
+      min-width: 100px;
+      font-weight: 600;
+    }
+
+    .clear {
+        @media only screen and (max-width: 520px) {
+          margin-top: 10px;
+          padding: 3px 8px;
+        }
+    }
+
+    .event-filter {
+      width: 100%;
+      margin-left: 10px;
+      @media only screen and (max-width: 520px) {
+        display: block;
+        margin-left: 0;
+        margin-top: 10px;
+      }
+    }
+  }
+
+  .cal-month-view {
+    background-color: black;
+  }
+}

@@ -1,0 +1,62 @@
+.council-calendar-wrapper {
+  max-width: 950px;
+  margin: 0 auto;
+  width: 100%;
+
+  .calendar {
+    margin: 20px 10px;
+    border-radius: 8px;
+    overflow: hidden;
+    // min-width: 702px;
+  }
+
+  .header-wrapper {
+    display: flex;
+    background: #0C7F40;
+    text-align: center;
+    color: #ffffff;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+
+    span {
+      display: block;
+      padding: 0 10px;
+      margin: 0;
+      line-height: 60px;
+      font-size: 22px;
+    }
+
+    i {
+      display: block;
+
+      svg {
+        fill: #242424;
+      }
+    }
+
+    a {
+      color: #242424;
+      position: absolute;
+      right: 15px;
+      font-size: 30px;
+
+      i {
+        line-height: 0;
+      }
+    }
+  }
+  .month {
+    box-sizing: border-box;
+border-radius: 5px;
+  }
+  .buttons-wrapper {
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+  }
+  .cal-month-view {
+    background-color: black;
+  }
+}

@@ -1,0 +1,84 @@
+<ng-template
+  #customCellTemplate
+  let-day="day"
+  let-openDay="openDay"
+  let-locale="locale"
+  let-tooltipPlacement="tooltipPlacement"
+  let-highlightDay="highlightDay"
+  let-unhighlightDay="unhighlightDay"
+  let-eventClicked="eventClicked"
+  let-tooltipTemplate="tooltipTemplate"
+  let-tooltipAppendToBody="tooltipAppendToBody"
+  let-tooltipDelay="tooltipDelay"
+  let-trackByEventId="trackByEventId"
+  let-validateDrag="validateDrag"
+>
+  <div class="cal-cell-top" [ngClass]="isSelected(day)? 'day-selected': ''">
+    <!-- <span class="cal-day-badge" *ngIf="day.badgeTotal > 0">{{
+      day.badgeTotal
+    }}</span> -->
+    <p class="cal-day-number">{{
+      day.date | calendarDate: 'monthViewDayNumber':locale
+    }}</p>
+
+  </div>
+  <div class="cal-events" [ngClass]="isSelected(day)? 'day-selected': ''" *ngIf="day.events.length > 0">
+    <div
+      class="cal-event"
+      *ngFor="let event of day.events; trackBy: trackByEventId"
+      [ngClass]="event?.cssClass"
+
+    >
+      <div class="meeting-details">
+        <a class="agenda"  routerLink="/{{ city }}/councilmeetings">Agenda</a>
+        <br>
+        <a class="minutes"  routerLink="/{{ city }}/councilmeetings" >Minutes</a>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template
+  #customHeaderTemplate
+  let-days="days"
+  let-locale="locale"
+  let-trackByWeekDayHeaderDate="trackByWeekDayHeaderDate"
+>
+  <div class="cal-cell-row cal-header">
+    <div
+      class="cal-cell"
+      *ngFor="let day of days; trackBy: trackByWeekDayHeaderDate"
+      [class.cal-past]="day.isPast"
+      [class.cal-today]="day.isToday"
+      [class.cal-future]="day.isFuture"
+      [class.cal-weekend]="day.isWeekend"
+      [ngClass]="day.cssClass"
+    >
+      {{ day.date | calendarDate: 'monthViewColumnHeader':locale | slice:0:3}}
+    </div>
+  </div>
+</ng-template>
+<div class="council-calendar-wrapper">
+  <div class="calendar">
+    <!-- calendar header -->
+    <div class="header-wrapper">
+      <i mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 12l18-12v24z" fill="white"/></svg>
+      </i>
+      <span>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</span>
+      <i mwlCalendarNextView [view]="view" [(viewDate)]="viewDate">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M21 12l-18 12v-24z" fill="white"/></svg>
+      </i>
+    </div>
+    <!-- calendar date number -->
+    <div [ngSwitch]="view">
+      <mwl-calendar-month-view *ngSwitchCase="CalendarView.Month" [viewDate]="viewDate" [events]="meetings" [refresh]="refresh"  [cellTemplate]="customCellTemplate" [headerTemplate]="customHeaderTemplate" ></mwl-calendar-month-view>
+      <!-- <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate" [events]="meetings" [refresh]="refresh"></mwl-calendar-week-view> -->
+      <!-- <mwl-calendar-day-view *ngSwitchCase="CalendarView.Day" [viewDate]="viewDate" [events]="meetings" [refresh]="refresh" ></mwl-calendar-day-view> -->
+    </div>
+    <div class="buttons-wrapper">
+
+      </div>
+  </div>
+</div>
+

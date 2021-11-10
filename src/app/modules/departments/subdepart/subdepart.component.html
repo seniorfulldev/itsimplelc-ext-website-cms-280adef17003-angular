@@ -1,0 +1,33 @@
+<ng-container *ngIf="department$ | async as department">
+  <ada-banner *ngIf="department.imgUrl" [background]="'assets/images/department-header-image.jpg'" [title]="department.title" [alt]="'test alt'"
+  [longdesc]="'test long desc'">
+</ada-banner>
+<app-custom-menu [departmentId]="department.id" class="onMobile"></app-custom-menu>
+<!-- <div class="department-gallery">
+  <div *ngIf="department.videoUrl" class="iframe_banner_video" [innerHtml]="this.iframe_html"
+  [ngStyle]="{ 'background-position': 'center' + style }"></div>
+  <div class="department-image" >
+    <div class="img" [ngStyle]="{'background': 'url(' + department.imgUrl + ') no-repeat'}"></div>
+  </div>
+</div> -->
+<div class="departments-wrapper">
+  <div class="department-content-wrapper">
+    <div class="content-wrapper">
+      <div class="leader-wrapper">
+        <ada-image [src]="department.leaderImgUrl" [alt]="'test alt'" [longdesc]="'test long description'"
+          [fit]="'contain'"></ada-image>
+        <p class="leader-title"><span>{{department.name}}<br/></span>{{department.leaderTitle}}</p>
+        <a *ngIf="department.email" href="mailto:{{ department.email }}" target="_top"
+          class="email">{{ department.email }}</a>
+        <br />
+        <a *ngIf="department.phone" href="tel:{{ department.phone}}" target="_top">Phone: {{ department.phone}}</a>
+      </div>
+      <div class="description" [innerHTML]="department?.description | safeHtml"></div>
+      <!-- <p>{{ department.description }}</p> -->
+      <p *ngIf="!department.description" [ngStyle]="{'width': '70%'}"></p>
+    </div>
+  </div>
+  <app-custom-menu [departmentId]="department.id" class="onDesktop"></app-custom-menu>
+</div>
+
+</ng-container>

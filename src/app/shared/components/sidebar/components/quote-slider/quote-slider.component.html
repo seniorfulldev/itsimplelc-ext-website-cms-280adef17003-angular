@@ -1,0 +1,23 @@
+<!-- <div class="real-time-clock">
+  <clock></clock>
+  <div class="date-wrapper">
+    <p class="date">{{ today | date:'fullDate' }}</p>
+  </div>
+</div> -->
+<div class="quote-slider">
+  <div class="alerts-bar">Real-time Alerts</div>
+  <ngx-slick-carousel *ngIf="dispalerts.length > 0" class="sidebar-quote-carousel" 
+          #slickQuote
+          [config]="slideConfig" 
+          (init)="slickInit($event)"
+          (breakpoint)="breakpoint($event)"
+          (afterChange)="afterChange($event)"
+          (beforeChange)="beforeChange($event)">
+      <div ngxSlickItem *ngFor="let alert of dispalerts" class="slide-quote">
+        <!-- <ada-image *ngIf="alert.imgUrl" [src]="alert.imgUrl" [alt]="'test alt'" [longdesc]="'test long description'"></ada-image> -->
+
+          <p class="alertdate">{{ alert.createdDate | date:'medium' }}</p>
+          <p>{{ alert.message }}</p>
+      </div>
+  </ngx-slick-carousel>
+</div>

@@ -1,0 +1,19 @@
+<div class="news-wrapper">
+  <div class="news-bar">News</div>
+  <ngx-slick-carousel *ngIf="dispnews.length > 0" class="sidebar-news-carousel" 
+      #slickNews
+      [config]="slideNewsConfig" 
+      (init)="slickInit($event)"
+      (breakpoint)="breakpoint($event)"
+      (afterChange)="afterChange($event)"
+      (beforeChange)="beforeChange($event)">
+    <div ngxSlickItem *ngFor="let new of dispnews" class="slide-news">
+      <ada-image [src]="new.imgUrl" [alt]="'test alt'" [longdesc]="'test long description'"></ada-image>
+      <div class="news-content">{{ new.content | striphtml }}</div>
+    </div>
+  </ngx-slick-carousel>
+  <div class="buttons">
+    <a href="mailto:{{ email }}?subject=Feedback%20to%20{{ title }}" target="_blank" class="feedback">Feedback</a>
+    <a href="{{ link }}" target="_blank" class="more">More... </a>
+  </div>
+</div>

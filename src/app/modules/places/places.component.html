@@ -1,0 +1,7 @@
+<ada-banner [background]="'assets/images/places.jpg'" [title]="'Public Places'" [alt]="'test alt'" [longdesc]="'test long desc'" [style]="'bottom'"></ada-banner>
+<div class="places-wrapper">
+  <app-search [placeholder]="'Search in Places'" (onEnter)="onSearch($event)"></app-search>
+  <ng-container *ngIf="sub | async">
+    <place-card *ngFor="let place of places" [place]="place" [ngClass]="{'show':isVisible(place), 'hidden': isNone(place)}"></place-card>
+  </ng-container>
+</div>

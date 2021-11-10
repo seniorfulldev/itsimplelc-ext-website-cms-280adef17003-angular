@@ -1,0 +1,42 @@
+<div class="place-card-wrapper">
+  <a routerLink="/{{ city }}/places/{{ place.id }}" class="img-container">
+    <ada-image
+      [src]="place.image"
+      [alt]="'test alt'"
+      [longdesc]="'test long description'"
+    ></ada-image
+  ></a>
+  <div class="details-container">
+    <div class="details">
+      <p class="name">{{ place.name }}</p>
+      <br />
+      <p class="location">
+        <a href="http://maps.google.com/?q={{ place.address }}" target="_blank"
+          ><i
+            ><svg
+              width="17"
+              height="24"
+              viewBox="0 0 17 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8.50008 0.585571C3.82383 0.585571 0.041748 4.10619 0.041748 8.45915C0.041748 14.3643 8.50008 23.0815 8.50008 23.0815C8.50008 23.0815 16.9584 14.3643 16.9584 8.45915C16.9584 4.10619 13.1763 0.585571 8.50008 0.585571ZM8.50008 11.2711C6.83258 11.2711 5.47925 10.0114 5.47925 8.45915C5.47925 6.90693 6.83258 5.64716 8.50008 5.64716C10.1676 5.64716 11.5209 6.90693 11.5209 8.45915C11.5209 10.0114 10.1676 11.2711 8.50008 11.2711Z"
+                fill="black"
+              />
+            </svg>
+          </i>
+          <span class="notranslate">&nbsp;&nbsp;{{ place.address }}</span>
+        </a>
+      </p>
+      <a href="tel:{{ place.phone }}"
+        ><i class="icon ion-md-call" style="font-size: 20px !important"></i
+        ><mat-icon>call</mat-icon> {{ place.phone }}</a
+      >
+      <p>Operating Hours: {{ place.hours }}</p>
+      <!-- <p class="facilities">Facilities</p> -->
+      <!-- <div class="facilities-icons"></div> -->
+    </div>
+    <a routerLink="/{{ city }}/places/{{ place.id }}" class="more">Read More</a>
+  </div>
+</div>

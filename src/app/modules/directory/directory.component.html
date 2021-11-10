@@ -1,0 +1,44 @@
+<ada-banner background="assets/images/directory-b.jpg" [title]="'Directory'" [alt]="'test alt'" [style]="'top'"
+  [longdesc]="'test long desc'"></ada-banner>
+<div class="directory-wrapper">
+  <app-search [placeholder]="'Search in Directory'" (onEnter)="onSearch($event)" [search] = "searchKeyWordsFromAis"></app-search>
+  <div class="directory-table-wrapper">
+    <div class="directory-table">
+      <table *ngIf="sub | async">
+        <tr>
+          <th (click)="sortBy($event, 'name')" class="headcol sortable">Name<span>
+            <mat-icon [ngClass]="isVisible('name', -1)? '': 'hidden'">arrow_drop_up</mat-icon>
+            <mat-icon [ngClass]="isVisible('name', 1)? '': 'hidden'">arrow_drop_down</mat-icon>
+            </span>
+          </th>
+          <th (click)="sortBy($event, 'role')" class="sortable">Title<span>
+            <mat-icon [ngClass]="isVisible('role', -1)? '': 'hidden'">arrow_drop_up</mat-icon>
+            <mat-icon [ngClass]="isVisible('role', 1)? '': 'hidden'">arrow_drop_down</mat-icon>
+            </span>
+          </th>
+          <th class="phone">Phone</th>
+          <th class="email">Email</th>
+        </tr>
+        <tr *ngFor="let contact of result;
+                    let isOdd=odd;
+                    let isEven=even" [class.odd]="isOdd" [class.even]="isEven">
+          <td class="headcol">{{ contact.name }}</td>
+          <td class="role">{{ contact.role }}</td>
+          <td class="desktop"><a href="tel:{{ contact.phone }}" target="_top">{{ contact.phone }}</a></td>
+          <td class="p-mobile">
+            <a href="tel:{{ contact.phone }}" target="_top">
+              <mat-icon>call</mat-icon>
+            </a>
+          </td>
+          <!-- <td class="email e-desktop"><a href="mailto:{{ contact.email }}" target="_top">{{ contact.email }}</a></td> -->
+          <td class="e-mobile">
+            <a href="mailto:{{ contact.email }}" target="_top">
+              <mat-icon>mail_outline</mat-icon>
+            </a>
+          </td>
+        </tr>
+      </table>
+      <!-- <span class="next">❯</span> -->
+    </div>
+  </div>
+</div>

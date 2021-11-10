@@ -1,0 +1,11 @@
+<div class="event-wrapper">
+  <div class="event-bar">Next Event</div>
+  <ngx-slick-carousel *ngIf="disptodayEvents.length > 0" class="sidebar-events-carousel" 
+      #slickEvents
+      [config]="slideConfig">
+    <div ngxSlickItem *ngFor="let siderbarEvent of disptodayEvents" class="slide-events">
+      <ada-image [src]="siderbarEvent.image" [alt]="'test alt'" [longdesc]="'test long description'"></ada-image>
+      <div class="event-content">{{ siderbarEvent.details | striphtml }}</div>
+    </div>
+  </ngx-slick-carousel>
+</div>

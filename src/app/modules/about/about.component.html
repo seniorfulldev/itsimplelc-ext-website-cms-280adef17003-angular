@@ -1,0 +1,20 @@
+<ada-banner background="assets/images/about-a.jpg" [title]="'about'" [alt]="'test alt'" [longdesc]="'test long desc'"
+  [style]="'top'"></ada-banner>
+<div class="about-wrapper">
+  <ng-container *ngIf="settings$ | async as setting">
+    <div [innerHTML]="setting?.description | safeHtml">
+    </div>
+    <div class="todeletepart">
+      <img [src]="setting?.aboutImgs?.img01Url" />
+      <img [src]="setting?.aboutImgs?.img02Url" />
+      <img [src]="setting?.aboutImgs?.img03Url" />
+      <img [src]="setting?.aboutImgs?.img04Url" />
+      <img [src]="setting?.aboutImgs?.img05Url" />
+      <img [src]="setting?.aboutImgs?.img06Url" />
+      <img [src]="setting?.aboutImgs?.img07Url" />
+      <img [src]="setting?.aboutImgs?.img08Url" />
+      <img [src]="setting?.aboutImgs?.img09Url" />
+      <img [src]="setting?.aboutImgs?.img10Url" />
+    </div>
+  </ng-container>
+</div>

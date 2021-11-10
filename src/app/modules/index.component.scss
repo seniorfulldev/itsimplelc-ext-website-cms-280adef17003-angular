@@ -1,0 +1,68 @@
+.root-wrapper {
+  background-color: #ffffff;
+
+  // @media only screen and (max-width: 520px) {
+  //   background-color: #2e2e2e;
+  // }
+  .page-wrapper {
+    display: flex;
+    padding-top: 157px;
+
+    @media only screen and (max-width: 900px) {
+      padding-top: 70px;
+    }
+
+    @media only screen and (max-width: 900px) {
+      flex-direction: column;
+    }
+
+    .page {
+      // width: calc(100% - 300px);
+      width: 100%;
+      display: inline-block;
+    }
+
+    .mobile-extra-footer {
+      display: none;
+
+      .app-link {
+        display: flex;
+        flex-flow: row nowrap;
+        padding: 10px 20px;
+        color: #ccc;
+        justify-content: center;
+        text-decoration: none;
+        align-items: center;
+
+        p {
+          flex: 0 0 75%;
+          margin: 0 0.2rem 0 0;
+          color: #000000;
+        }
+
+        // ada-image {
+        //   display: block;
+        //   flex: 0 0 30%;
+        //   height: 70px;
+        // }
+      }
+
+      @media only screen and (max-width: 520px) {
+        display: block;
+      }
+    }
+  }
+
+  app-footer {
+    display: block;
+    padding-top: 10px;
+
+    @media only screen and (max-width: 520px) {
+      padding-top: 0;
+    }
+  }
+}
+
+:host ::ng-deep #top-staticbar {
+  padding: 10px 0;
+}

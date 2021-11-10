@@ -1,0 +1,175 @@
+@import '../../../../../assets/theme.scss';
+.card-wrapper {
+  display: block;
+  background-color: $theme-blue;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+  min-height: 210px;
+
+  @media only screen and (max-width: 1200px) {
+    min-height: 160px;
+  }
+
+  & > a,
+  & > div:not(.tooltip) {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: #000000;
+    height: 100%;
+
+    p {
+      &.date {
+        margin: 0;
+        padding: 3px 0 0 5px;
+        // text-align: center;
+        font-style: italic;
+        line-height: 18px;
+        font-size: 12px;
+        background: #e1e1e1;
+      }
+      &.title {
+        margin: 0;
+        padding: 0 0 3px 5px;
+        // text-align: center;
+        line-height: 18px;
+        font-size: 14px;
+        background: #e1e1e1;
+
+        @media only screen and (max-width: 1200px) {
+          font-size: 14px;
+        }
+      }
+      &.calendar-title {
+        margin: 0;
+        padding: 3px 0;
+        text-align: center;
+        line-height: 36px;
+        font-size: 14px;
+        background: #e1e1e1;
+      }
+    }
+  }
+
+  .hidden-mobile {
+    display: flex;
+
+    @media only screen and (max-width: 900px) {
+      display: none;
+    }
+  }
+
+  .mobile {
+    display: none;
+
+    @media only screen and (max-width: 900px) {
+      display: flex;
+    }
+  }
+
+  ada-image {
+    flex: 1;
+
+    &.contain {
+      padding: 15px;
+      box-sizing: border-box;
+    }
+  }
+}
+
+.tooltip {
+  z-index: 1;
+  &.tooltip-light {
+    visibility: hidden;
+    width: 350px;
+    background: transparent;
+    padding: 10px;
+    top: 50%;
+    left: calc(100% - 10px);
+    transform: translateY(-50%);
+    transition: opacity 0.5s;
+
+    @media only screen and (max-width: 900px) {
+      display: none;
+    }
+
+    & > div {
+      font-family: "Calibri", sans-serif;
+      font-size: 16px;
+      line-height: 22px;
+      font-weight: 100;
+      padding: 8px;
+      background-color: #b9b9b9;
+      color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      transition: opacity 0.5s;
+
+      .tooltip-content {
+        padding: 10px 15px;
+        // border: 1px solid #000;
+        border-radius: 5px;
+      }
+    }
+
+    .tooltip-arrow {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      transform: rotate(135deg);
+      top: 50%;
+      right: 100%;
+      margin-top: -5px;
+      margin-right: -15px;
+      background: #b9b9b9;
+    }
+
+    a {
+      font-size: 25px;
+      color: #000;
+      margin-right: 15px;
+      display: inline-flex;
+
+      svg {
+        width: 20px;
+        height: 20px;
+        fill: #ffffff;
+        transform: rotate(-45deg);
+      }
+      .icon {
+        color: #ffffff;
+      }
+    }
+
+    .title {
+      font-size: 18px;
+      line-height: 18px;
+      font-weight: 700;
+    }
+
+    .heading {
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 25px;
+    }
+
+    .sub-title {
+      font-size: 18px;
+      // font-weight: 900;
+    }
+
+    &.tooltip-show {
+      visibility: visible;
+      opacity: 1;
+      a {
+        text-decoration: none;
+        font-size: 18px;
+        color: #ffffff;
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+.sidebar {
+  display: inline-block;
+  width: 300px;
+
+  @media only screen and (max-width: 900px) {
+    display: flex;
+    flex-direction: column;
+    order: 0;
+    border: none;
+    width: auto;
+  }
+
+  quote-slider {
+    display: block;
+  }
+
+  event {
+    display: block;
+    padding: 0 8px;
+    margin-bottom: 3px;
+  }
+
+  news {
+    display: block;
+    padding: 0 8px;
+    margin-bottom: 3px;
+
+    @media only screen and (max-width: 900px) {
+      order: 1;
+      margin-bottom: 0;
+    }
+  }
+}

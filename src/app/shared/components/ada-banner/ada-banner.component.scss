@@ -1,0 +1,42 @@
+.ada-banner-wrapper{
+  display: flex;
+  flex-direction: row;
+  height: 250px;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  .ada-banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  alt {
+    display: none;
+  }
+
+  longdesc {
+    display: none;
+  }
+
+  p {
+    flex: 100%;
+    margin: 0;
+    color: #fff;
+    font-size: 80px;
+    text-transform: uppercase;
+    z-index: 1;
+
+    @media only screen and (max-width: 900px) {
+      font-size: 50px;
+    }
+
+  }
+}

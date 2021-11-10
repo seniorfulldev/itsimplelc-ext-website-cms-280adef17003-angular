@@ -1,0 +1,64 @@
+<div class="print-wrapper">
+  <div class="published-address">
+    <!-- <span>Published on</span> <span class="townname"> {{twname}}</span>  ( <a href="{{href}}/{{city}}" class="app-link" target="_blank">{{href}}/{{city}}</a>) -->
+    <ng-container *ngIf="councilmeetingsInfo">
+      <p [innerHTML]="councilmeetingsInfo.generalInfo | safehtml"></p>
+    </ng-container>
+  </div>
+  <hr />
+  <div class="directory-table">
+    <table>
+      <tr>
+        <th class="headcol sortable">Meeting Name</th>
+        <th class="sortable">Date</th>
+        <th class="phone">Agenda</th>
+        <th class="email">Documents</th>
+        <th class="email">Minutes</th>
+        <th class="email">Media Recording</th>
+      </tr>
+      <tr
+        *ngFor="let cm of cmData; let isOdd = odd; let isEven = even"
+        [class.odd]="isOdd"
+        [class.even]="isEven"
+      >
+        <td class="headcol">{{ cm.title }}</td>
+        <td class="role">{{ cm.date | date }}</td>
+        <td class="role">
+          <a target="_blank" rel="noopener" [href]="cm.agenda">Click here</a>
+        </td>
+        <td class="role">
+          <span *ngIf="cm?.documents; else notPublished">
+            <a target="_blank" rel="noopener" [href]="cm.documents"
+              >Click here</a
+            >
+          </span>
+        </td>
+        <td class="role">
+          <span *ngIf="cm?.minutes; else notPublished">
+            <a target="_blank" rel="noopener" [href]="cm.minutes">Click here</a>
+          </span>
+        </td>
+        <td class="role">
+          <span *ngIf="cm?.audioVideo; else notPublished">
+            <a target="_blank" rel="noopener" [href]="cm.audioVideo"
+              >Click here</a
+            >
+          </span>
+        </td>
+      </tr>
+    </table>
+    <!-- <mat-icon class="print_table" (click)="printWebsite()">print</mat-icon> -->
+    <button mat-raised-button class="print_table" (click)="printWebsite()">
+      Print
+    </button>
+
+    <ng-template #notPublished>
+      <span>Not Published</span>
+    </ng-template>
+    <!-- <span class="next">❯</span> -->
+  </div>
+  <hr />
+  <!-- <div class="footer-url-content"><strong>Source URL:</strong> {{href}}/{{city}}/councilmeetings</div>
+  <br>
+  <strong>Links</strong> -->
+</div>

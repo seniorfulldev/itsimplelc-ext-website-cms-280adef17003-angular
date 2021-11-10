@@ -1,0 +1,14 @@
+<ada-banner background="assets/images/online_services-a.jpg" [title]="'Services'" [alt]="'test alt'" [longdesc]="'test long desc'" [style]="'75%'"></ada-banner>
+<div class="service-wrapper">
+  <app-search [placeholder]="'Search in Services'" (onEnter)="onSearch($event)" [search] = "searchKeyWordsFromAis"></app-search>
+  <div class="group-wrapper" *ngIf="sub | async">
+    <div *ngFor="let group of result | keyvalue" class="group" [ngClass]="{'show':isVisibleGroup(group)}">
+      <div class="items-wrapper">
+        <p>{{ group.key }}</p>
+        <ul class="items">
+          <li *ngFor="let service of group.value" [ngClass]="{'show':isVisible(service)}"><a href="{{ service.link }}" target="_blank">{{ service.title }}</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

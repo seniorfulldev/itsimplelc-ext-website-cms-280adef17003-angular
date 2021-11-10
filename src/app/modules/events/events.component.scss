@@ -1,0 +1,115 @@
+ada-banner {
+  display: block;
+  margin-bottom: 30px;
+}
+
+.cards-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 10px;
+
+  .cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    flex-flow: wrap;
+
+    &.hidden-mobile {
+      @media only screen and (max-width: 520px) {
+        display: none;
+      }
+      
+      .cards-slider-wrapper {
+        card {
+          width: 50%;
+        }
+      }
+
+      .cards-only-wrapper {
+        .event-nav-carousel {
+          // margin-top: 25px;
+          width: 100%;
+            .slide-nav {
+              display: flex !important;
+            }
+          .slick-list {
+            .slick-track {
+              .slide-nav {
+                display: flex !important;
+                overflow: visible;
+              }
+            }
+          }
+          card {
+            width: 100%;
+          }
+        }
+      }
+
+      events-slider {
+        width: 50%;
+      }
+    }
+
+    &.mobile {
+      display: none;
+
+      @media only screen and (max-width: 520px) {
+        display: flex;
+      }
+    }
+
+    .cards-slider-wrapper {
+      display: flex;
+      justify-content: center;
+      flex-flow: row wrap;
+      width: 100%;
+
+      .cards-slider-list {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+
+        .cards-slider {
+          display: flex;
+        }
+      }
+    }
+
+    .cards-only-wrapper {
+      display: flex;
+      width: 100%;
+
+      @media only screen and (max-width: 520px) {
+        flex-direction: column;
+      }
+    }
+
+    card {
+      padding: 10px;
+      display: block;
+      position: relative;
+
+      @media only screen and (max-width: 1400px) {
+        padding: 5px;
+      }
+      @media only screen and (max-width: 520px) {
+        margin: 12px 0;
+      }
+    }
+
+    events-slider {
+      padding: 10px;
+      box-sizing: border-box;
+      width: 100%;
+
+      @media only screen and (max-width: 1400px) {
+        padding: 5px;
+      }
+    }
+  }
+}

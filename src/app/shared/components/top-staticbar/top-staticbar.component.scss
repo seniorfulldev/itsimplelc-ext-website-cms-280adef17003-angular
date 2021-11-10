@@ -1,0 +1,121 @@
+.top-staticbar {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    width: 100%;
+    height: max-content;
+    min-height: 57px;
+    background-color: #2575aa;
+    top: 100px;
+    z-index: 2;
+
+    .real-time-alert {
+        margin-left: 80px;
+        vertical-align: middle;
+        display: inline-block;
+        width: 65%;
+        height: max-content;
+        .alerts-bar {
+            color: #ffffff;
+            text-align: left;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 25px;
+            & > .slick-prev {
+                @media only screen and (max-width: 768px) {
+                    z-index: 9 !important;
+                }
+            }
+        }
+
+        .sidebar-quote-carousel {
+            margin-bottom: -18px;
+            margin-top: -8px;
+            margin-left: -10px;
+            .alertdate {
+                margin-bottom: 0 !important;
+            }
+            p {
+                color: #ffffff;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 25px;
+                padding: 5px 10px;
+                @media only screen and (max-width: 1300px) {
+                    line-height: 12px;
+                }
+            }
+            @media only screen and (max-width: 768px) {
+                margin-top: -34px;
+            }
+        }
+        @media only screen and (max-width: 1600px) {
+            margin-left: 50px;
+            width: 60%;
+        }
+        @media only screen and (max-width: 1300px) {
+            margin-left: 50px;
+            width: 50%;
+        }
+        @media only screen and (max-width: 1160px) {
+            width: 45%;
+        }
+        @media only screen and (max-width: 1060px) {
+            width: 40%;
+        }
+        @media only screen and (max-width: 950px) {
+            margin-left: 25px;
+            width: 40%;
+        }
+        .no-alert-tip {
+            color: #ffffff;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 25px;
+        }
+    }
+
+    .date {
+        position: absolute;
+        right: 278px;
+        color: #ffffff;
+        font-size: 16px;
+    }
+    .weather-wrapper {
+        position: absolute;
+        right: 186px;
+        .weather-icon {
+            width: 53px;
+            margin-left: 70px;
+            display: inline-block;
+        }
+        .temperature {
+            color: #ffffff;
+        }
+    }
+
+    #google_translate_element {
+        position: absolute;
+        display: inline-block;
+        right: 20px;
+
+    }
+    custom-dropdown {
+        position: absolute;
+        display: inline-block;
+        right: 30px;
+    }
+    @media only screen and (max-width: 900px) {
+        height: 70px;
+        display: none;
+    }
+    @media only screen and (max-width: 800px) {
+        display: none;
+    }
+    @media only screen and (max-width: 520px) {
+        display: none;
+    }
+}
